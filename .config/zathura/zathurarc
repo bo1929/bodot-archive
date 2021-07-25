@@ -1,0 +1,18 @@
+# Define the color in index mode
+set index-bg                    "#073642"
+set index-fg                    "#93a1a1"
+set index-active-bg             "#586e75"
+set index-active-fg             "#eee8d5"
+
+set inputbar-bg                 "#586e75"
+set inputbar-fg                 "#eee8d5"
+
+set statusbar-bg                "#073642"
+set statusbar-fg                "#93a1a1"
+
+set highlight-color             "#657b83"
+set highlight-active-color      "#268bd2"
+set recolor-lightcolor          "#222222"
+set default-bg                  "#222230"
+
+set selection-clipboard clipboard
