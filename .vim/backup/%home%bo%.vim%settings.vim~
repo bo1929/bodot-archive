@@ -1,0 +1,115 @@
+" === General Settings === {{{
+filetype plugin indent on
+set nocompatible
+set encoding=utf-8
+
+set belloff=all                         " No beep beep.
+set nojoinspaces                        " Separate sentences by a period and one space when using gq.
+set backspace=indent,eol,start          " Make backspace behave like usual.
+set hidden                              " Buffer becomes hidden when it is abandoned.
+set showtabline=2                       " Always show tab page labels.
+set laststatus=2                        " Last window will always have a status line.
+set ruler                               " Always show cursor position
+set wildmenu                            " Display command line’s tab complete options as a menu.
+"" set showcmd                             " Display incomplete commands.
+"" set noesckeys                           " Immediately perceive Escape in insert mode.
+" }}}
+
+" === Folding === {{{
+set foldmethod=marker           " Use markers to define folds.
+set foldcolumn=80
+" }}}
+
+" === Cursor === {{{
+let &t_SI="\e[6 q"              " Change cursor while chaning mode.
+let &t_EI="\e[2 q"              " Change cursor while chaning mode.
+set guicursor+=a:blinkon0       " Stop cursor blanking:
+" }}}
+
+" Directories:
+" Set up backup location and enable
+" the double slash means editing /etc/X11/x.org and ~/x.org won't clobber
+let backup_directory = $HOME . '/.vim/backup/'
+if filereadable(backup_directory)
+    set backupdir=backup_directory
+endif
+set backupdir= 
+set backup
+set directory=~/.vim/swap//
+if v:version >= '703'
+    set undodir=~/.vim/undo//
+    set undofile
+    set undoreload=50000
+endif
+
+"
+" Line Indentation:
+" New lines inherit the indentation of previous lines:
+set autoindent
+" Convert tabs to spaces:  
+set expandtab
+" Show existing tab with 4 spaces width:
+set tabstop=4
+" When indenting with '>', use 4 spaces width:
+set shiftwidth=4
+" Round the indent to a multiple of shiftwidth:
+set shiftround
+
+
+" Timeout Settings:
+set timeoutlen=250
+set ttimeoutlen=10
+
+
+" Screen Splitting:
+" When on, splitting a window will put the new window below the current one:
+set splitbelow
+" When on, splitting a window will put the new window below the current one:
+set splitright
+
+
+" Search Settings:
+" Highlight all its matches:
+set hlsearch
+" Do incremental searching:
+set incsearch
+" Case-insensitive search:
+set wildignorecase
+" Clear \ register. As a result remove highlighting:
+nnoremap \ :let @/=""<cr>
+
+
+" Line Numbers:
+" Show current line number:
+set number
+" Show relative line numbers:
+set relativenumber
+
+
+" Autocomplete:
+" Complete longest common string, then list alternatives:
+"" set wildmode=lastused,list,full
+set completeopt=menuone,noinsert,noselect,preview
+" Don't give |ins-completion-menu| messages:
+set shortmess+=c
+
+
+" Visual Related:
+set background=dark
+colorscheme gruvbox
+
+" Screen won't be redrawn (while executing macros, registers, auto-commands):
+set lazyredraw
+" Set the vertical split character to  a space:
+set fillchars+=vert:\ 
+" Enable syntax highlighting:
+syntax on
+
+if exists('+termguicolors')
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+    let &t_ut=''
+    set termguicolors
+endif
+
+hi Normal ctermbg=NONE guibg=NONE

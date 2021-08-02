@@ -1,0 +1,7 @@
+To be organized...
+
+fdisk -l
+mount -t ntfs /dev/sda1  /mnt/
+
+udisksctl unmount -b /dev/sda1
+udisksctl power-off -b /dev/sda1

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/bo/Files/projects/dypoces/dypoces'
+let g:netrw_dirhist_8='/home/bo/Files/projects/dypoces/simulations'
+let g:netrw_dirhist_7='/home/bo/Files/projects/dypoces'
+let g:netrw_dirhist_6='/home/bo/Files/projects/dypoces/results'
+let g:netrw_dirhist_5='/home/bo/Files/projects/dypoces/results/simulation_results'
+let g:netrw_dirhist_4='/home/bo/Files/projects/dypoces/results'
+let g:netrw_dirhist_3='/home/bo/Files/projects/dypoces'
+let g:netrw_dirhist_2='/home/bo/Files/projects/dypoces/simulations'
+let g:netrw_dirhist_1='/home/bo/Files/projects/dypoces/simulations/classes-DCBM'
+let g:netrw_dirhist_0='/home/bo/Files/projects/dypoces/dypoces'

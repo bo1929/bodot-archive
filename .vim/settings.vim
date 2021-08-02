@@ -1,122 +1,77 @@
 filetype plugin indent on
-
 set nocompatible
 set encoding=utf-8
 
-" No beep beep:
-set belloff=all
+" === General Settings === {{{
+set belloff=all                             " No beep beep.
+set hidden                                  " Buffer becomes hidden when it is abandoned.
+set showtabline=2                           " Always show tab page labels.
+set laststatus=2                            " Last window will always have a status line.
+set ruler                                   " Always show cursor position
+set wildmenu                                " Display command line’s tab complete options as a menu.
+set backspace=indent,eol,start              " Make backspace behave like usual.
+set timeout timeoutlen=250 ttimeoutlen=20   " Timeout for key sequences, mappings.
+set number                                  " Show current line number.
+set relativenumber                          " Show relative line numbers.
+set nojoinspaces                            " Separate sentences by a period and one space when using gq.
+"" set showcmd                                 " Display incomplete commands.
+"" set noesckeys                               " Immediately perceive Escape in insert mode.
+" }}}
 
-" Sentences should be separated by a period and ONE space when using gq:
-"" set nojoinspaces
-" Make backspace behave like usual:
-set backspace=indent,eol,start
-" When on, a buffer becomes hidden when it is abandoned:
-set hidden
-" Always show tab page labels:
-set showtabline=2
-" Last window will always have a status line:
-set laststatus=2
-" Always show cursor position:
-set ruler
-" Display command line’s tab complete options as a menu:
-"" set wildmenu
-" Display incomplete commands:
-"" set showcmd
-" Immediately perceive Escape in insert mode:
-"" set noesckeys
+" === Folding === {{{
+set foldmethod=marker           " Use markers to define folds.
+" }}}
 
-" Folding:
-" Use markers to define folds:
-set foldmethod=marker
+" === Cursor === {{{
+let &t_SI="\e[6 q"              " Change cursor while chaning mode.
+let &t_EI="\e[2 q"              " Change cursor while chaning mode.
+set guicursor+=a:blinkon0       " Stop cursor blanking.
+" }}}
 
-" Cursor:
-" Change cursor while chaning mode:
-let &t_SI="\e[6 q"
-let &t_EI="\e[2 q"
-" Stop cursor blanking:
-set guicursor+=a:blinkon0
-
-
-" Directories:
-" Set up backup location and enable
-" the double slash means editing /etc/X11/x.org and ~/x.org won't clobber
-set backupdir=~/.vim/backup//
-set backup
-set directory=~/.vim/swap//
-if v:version >= '703'
-    set undodir=~/.vim/undo//
-    set undofile
-    set undoreload=50000
+" === Directories === {{{
+let swap_directory = $HOME . '/tmp/vim/swap/'
+if filereadable(swap_directory)
+    set dir=swap_directory
 endif
+" Set up backup location and enable.
+set backup
+let backup_directory = $HOME . '/tmp/vim/backup/'
+if filereadable(backup_directory)
+    set backupdir=backup_directory
+endif
+set undofile
+    set undoreload=50000
+let undo_directory = $HOME . './tmp/vim/undo/'
+if filereadable(undo_directory)
+    set undodir=undo_directory
+endif
+" }}}
 
-"
-" Line Indentation:
-" New lines inherit the indentation of previous lines:
-set autoindent
-" Convert tabs to spaces:  
-set expandtab
-" Show existing tab with 4 spaces width:
-set tabstop=4
-" When indenting with '>', use 4 spaces width:
-set shiftwidth=4
-" Round the indent to a multiple of shiftwidth:
-set shiftround
+" === Indentation === {{{
+set autoindent              " New lines inherit indentation.
+set expandtab               " Convert tabs to spaces.
+set tabstop=4               " Show existing tab with 4 spaces width.
+set shiftwidth=4            " When indenting with '>', use 4 spaces width.
+set shiftround              " Round the indent to a multiple of shiftwidth.
+" }}}
 
+" === Screen Splitting === {{{
+set splitbelow                  " Put new window to the below of current one.
+set splitright                  " Put new window to the right of current one.
+" }}}
 
-" Timeout Settings:
-set timeoutlen=250
-set ttimeoutlen=10
+" === Search Settings === {{{
+set hlsearch            " Highlight all its matches.
+set incsearch           " Do incremental searching.
+set wildignorecase      " Case-insensitive search.
+" }}}
 
+" === Autocomplete === {{{
+set completeopt=menuone,noinsert,noselect,preview
+set shortmess+=c " Don't give ins-completion-menu messages.
+" }}}
 
-" Screen Splitting:
-" When on, splitting a window will put the new window below the current one:
-set splitbelow
-" When on, splitting a window will put the new window below the current one:
-set splitright
-
-
-" Search Settings:
-" Highlight all its matches:
-set hlsearch
-" Do incremental searching:                 
-set incsearch
-" Case-insensitive search:
-set wildignorecase
-" Clear \ register. As a result remove highlighting:
-nnoremap \ :let @/=""<cr>
-
-
-" Line Numbers:
-" Show current line number:
-set number
-" Show relative line numbers:
-set relativenumber
-
-
-" Autocomplete:
-" Complete longest common string, then list alternatives:
-set wildmode=longest,list,full
-" Use the popup menu also when there is only one match:
-set completeopt+=menuone
-" Do not select a match in the menu:
-set completeopt+=noselect
-" Don't give |ins-completion-menu| messages:
-set shortmess+=c
-
-
-" Visual Related:
-set background=dark
-colorscheme gruvbox
-
-" Screen won't be redrawn (while executing macros, registers, auto-commands):
-"" set lazyredraw
-" Display $ after end of the line:
-set list
-" Set the vertical split character to  a space:
-set fillchars+=vert:\ 
-" Enable syntax highlighting:
-syntax on
-
+" === Visual Related === {{{
 if exists('+termguicolors')
     let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
@@ -124,4 +79,16 @@ if exists('+termguicolors')
     set termguicolors
 endif
 
+if !has('gui_running')
+    set t_Co=256
+endif
+
+colorscheme gruvbox
+set background=dark
+syntax on               " Enable syntax highlighting.
+"" set lazyredraw          " Don't redraw screen for macros auto-commands etc.
+set fillchars+=vert:\  " Set the vertical split character to a space.
+
 hi Normal ctermbg=NONE guibg=NONE
+hi Folded ctermbg=NONE guibg=NONE
+" }}}

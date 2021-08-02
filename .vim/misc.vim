@@ -1,3 +1,4 @@
+" Twiddle the case of text under the cursor.
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)
     let result = tolower(a:str)

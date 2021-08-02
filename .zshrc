@@ -24,5 +24,5 @@ if [[ -e "${HOME}/.config/zsh/aliases.zsh" ]]; then
 fi
 
 if [[ -e "${HOME}/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-    source "/home/bo/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    source "${HOME}/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
