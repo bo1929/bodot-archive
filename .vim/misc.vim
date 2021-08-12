@@ -11,11 +11,15 @@ function! TwiddleCase(str)
 endfunction
 
 " AutoCommands:
-" Disale auto-comment insertion:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 " Reset cursor on startup
 augroup ResetCursorShape
     au!
     autocmd VimEnter * :normal :startinsert :stopinsert 
 augroup END
+augroup FileTypeCommands
+    autocmd!
+	" Disale auto-comment insertion:
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+	autocmd FileType html,sh setlocal shiftwidth=2 tabstop=2
+augroup END
+

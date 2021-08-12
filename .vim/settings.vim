@@ -83,7 +83,7 @@ if !has('gui_running')
     set t_Co=256
 endif
 
-colorscheme gruvbox
+colorscheme material
 set background=dark
 syntax on               " Enable syntax highlighting.
 "" set lazyredraw          " Don't redraw screen for macros auto-commands etc.

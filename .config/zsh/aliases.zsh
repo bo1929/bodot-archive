@@ -22,19 +22,14 @@ alias egrep='egrep --color=auto'
 alias ssh='TERM=xterm-256color ssh'
 
 # Third-party applications
-# lfcd
+# lfcd.
 LFCD="/home/bo/.config/lf/lfcd.sh"
 if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
-# signal with tray
+# signal with tray.
 alias signal="signal-desktop --use-tray-icon"
-# cat with wings
+# cat with wings.
 alias cat=bat
-# zathura leaves terminal
+# zathura leaves terminal.
 alias zathura="zathura --fork"
-# nvim is too long.
-alias vi="nvim"
-alias vim="nvim"
-alias view="nvim -R"
-alias vimdiff="nvim -d"

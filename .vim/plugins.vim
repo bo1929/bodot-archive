@@ -18,7 +18,7 @@ call plug#begin('~/.vim/vim-plug')
     Plug        'machakann/vim-sandwich'
     Plug        'vimwiki/vimwiki'
     "" Plug        'junegunn/goyo.vim'
-    Plug        'morhetz/gruvbox'
+    Plug        'kaicataldo/material.vim', { 'branch': 'main' }
     Plug        'itchyny/lightline.vim'
     Plug        'ludovicchabant/vim-gutentags'
     " Python:
@@ -31,7 +31,11 @@ let g:flake8_cmd="/home/bo/.local/bin/flake8"
 let g:flake8_show_in_file=1 " show
 " }}}
 " === gruvbox === {{{
-let g:gruvbox_italic=1
+"" let g:gruvbox_italic=1
+" }}}
+" === material-color === {{{
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'palenight'
 " }}}
 " === vimwiki === {{{
 let g:vimwiki_list = [{'path': '~/Files/misc/notes/vimwiki-notes',
@@ -55,7 +59,7 @@ let g:airline#extensions#vimtex#continuous = "c"
 " }}}
 " === lightline === {{{
 let g:lightline = {
-          \ 'colorscheme': 'Tomorrow_Night',
+          \ 'colorscheme': 'material',
       \ }
 " }}}
 " === vimtex === {{{ 
