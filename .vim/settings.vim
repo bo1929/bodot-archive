@@ -83,11 +83,12 @@ if !has('gui_running')
     set t_Co=256
 endif
 
-colorscheme material
+colorscheme everforest
 set background=dark
 syntax on               " Enable syntax highlighting.
 "" set lazyredraw          " Don't redraw screen for macros auto-commands etc.
 set fillchars+=vert:\  " Set the vertical split character to a space.
+set re=1
 
 hi Normal ctermbg=NONE guibg=NONE
 hi Folded ctermbg=NONE guibg=NONE

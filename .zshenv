@@ -1,3 +1,3 @@
 export SHELL="/usr/bin/zsh"
-export EDITOR="/bin/nvim"
+export EDITOR="/bin/vim"
 export PAGER="/bin/less"

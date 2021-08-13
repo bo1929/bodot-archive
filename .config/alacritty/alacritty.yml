@@ -1,5 +1,5 @@
 import:
-  - ~/tmp/alacritty-colorschemes/gruvbox_material.yml
+  - ~/.config/alacritty/colorschemes/everforest.yml
   - ~/.config/alacritty/key_bindings.yml
 env:
   TERM: alacritty
@@ -42,7 +42,7 @@ font:
     x: 0
     y: 0
 
-background_opacity: .80
+background_opacity: .925
 
 cursor:
   style:
