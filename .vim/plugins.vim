@@ -10,19 +10,24 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin('~/.vim/vim-plug')
+    Plug        'sainnhe/everforest'
+    Plug        'itchyny/lightline.vim'
     Plug        'tpope/vim-vinegar'
     Plug        'tpope/vim-obsession'
     Plug        'tpope/vim-unimpaired'
     Plug        'machakann/vim-sandwich'
-    Plug        'vimwiki/vimwiki'
-    Plug        'sainnhe/everforest'
-    Plug        'itchyny/lightline.vim'
     Plug        'ludovicchabant/vim-gutentags'
+    Plug        'skywind3000/vim-auto-popmenu'
+    " Wiki:
+    Plug        'vimwiki/vimwiki'
     " Python:
     Plug        'nvie/vim-flake8'
     Plug        'vim-python/python-syntax'
     " Tex:
     "" Plug        'lervag/vimtex', { 'for': ['tex'] }
+    " Markdown:
+    "" Plugin       'godlygeek/tabular'
+    "" Plugin       'plasticboy/vim-markdown'
 call plug#end()
 
 " === flake8 === {{{
@@ -57,6 +62,11 @@ let g:airline#extensions#vimtex#continuous = "c"
 " === python-syntax === {{{
 let g:python_highlight_all = 1
 " }}}
+" === UltiSnips === {{{
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" }}}
 " === vimtex === {{{ 
 let g:vimtex_quickfix_autoclose_after_keystrokes=3
 let g:vimtex_view_method = 'zathura'
@@ -69,7 +79,9 @@ let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
 " }}}
 " === everforest === {{{
+let g:everforest_transparent_background = 1
 let g:everforest_enable_italic = 1
-let g:everforest_current_word = 'bold'
-let g:everforest_better_performance = 1
+" }}}
+" === vim-auto-popmenu === {{{
+let g:apc_enable_ft = {'*':1}
 " }}}

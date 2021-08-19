@@ -14,8 +14,8 @@ set timeout timeoutlen=250 ttimeoutlen=20   " Timeout for key sequences, mapping
 set number                                  " Show current line number.
 set relativenumber                          " Show relative line numbers.
 set nojoinspaces                            " Separate sentences by a period and one space when using gq.
+set noesckeys                               " Immediately perceive Escape in insert mode.
 "" set showcmd                                 " Display incomplete commands.
-"" set noesckeys                               " Immediately perceive Escape in insert mode.
 " }}}
 
 " === Folding === {{{
@@ -29,13 +29,13 @@ set guicursor+=a:blinkon0       " Stop cursor blanking.
 " }}}
 
 " === Directories === {{{
-let swap_directory = $HOME . '/tmp/vim/swap/'
+let swap_directory = $HOME . './tmp/vim/swap/'
 if filereadable(swap_directory)
     set dir=swap_directory
 endif
 " Set up backup location and enable.
 set backup
-let backup_directory = $HOME . '/tmp/vim/backup/'
+let backup_directory = $HOME . './tmp/vim/backup/'
 if filereadable(backup_directory)
     set backupdir=backup_directory
 endif
@@ -88,8 +88,8 @@ set background=dark
 syntax on               " Enable syntax highlighting.
 "" set lazyredraw          " Don't redraw screen for macros auto-commands etc.
 set fillchars+=vert:\  " Set the vertical split character to a space.
-set re=1
+"" set re=1
 
-hi Normal ctermbg=NONE guibg=NONE
-hi Folded ctermbg=NONE guibg=NONE
+"" hi Normal ctermbg=NONE guibg=NONE
+"" hi Folded ctermbg=NONE guibg=NONE
 " }}}

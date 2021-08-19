@@ -4,8 +4,7 @@ let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
 " Select all text in buffer.
-map <leader>a ggVG
-map <leader>w viw
+map <leader>va ggVG
 
 " Keep pressing ~ until you get the case you want.
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
