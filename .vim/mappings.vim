@@ -6,6 +6,16 @@ let maplocalleader="\<Space>"
 " Select all text in buffer.
 map <leader>va ggVG
 
+" Better yank and paste, use + register.
+noremap <leader>y "+y
+noremap <leader>p "+p
+
+" Use <leader><leader> to toggle to the last buffer.
+nnoremap <leader><leader> <c-^>
+
+" Run last macro with Q.
+nnoremap Q @@
+
 " Keep pressing ~ until you get the case you want.
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 

@@ -14,7 +14,8 @@ set timeout timeoutlen=250 ttimeoutlen=20   " Timeout for key sequences, mapping
 set number                                  " Show current line number.
 set relativenumber                          " Show relative line numbers.
 set nojoinspaces                            " Separate sentences by a period and one space when using gq.
-set noesckeys                               " Immediately perceive Escape in insert mode.
+"" set noesckeys                               " Immediately perceive Escape in insert mode.
+"" set ttyfast                                 " Indicates a fast terminal connection, smoother.
 "" set showcmd                                 " Display incomplete commands.
 " }}}
 
@@ -33,14 +34,15 @@ let swap_directory = $HOME . './tmp/vim/swap/'
 if filereadable(swap_directory)
     set dir=swap_directory
 endif
-" Set up backup location and enable.
+" Set backup location and backup.
 set backup
 let backup_directory = $HOME . './tmp/vim/backup/'
 if filereadable(backup_directory)
     set backupdir=backup_directory
 endif
+" Set undodir and undofile.
 set undofile
-    set undoreload=50000
+set undoreload=50000
 let undo_directory = $HOME . './tmp/vim/undo/'
 if filereadable(undo_directory)
     set undodir=undo_directory
@@ -85,10 +87,15 @@ endif
 
 colorscheme everforest
 set background=dark
-syntax on               " Enable syntax highlighting.
-"" set lazyredraw          " Don't redraw screen for macros auto-commands etc.
+
 set fillchars+=vert:\  " Set the vertical split character to a space.
+
+syntax on               " Enable syntax highlighting.
+syntax sync minlines=512
+syntax sync maxlines=1024
+
 "" set re=1
+"" set lazyredraw          " Don't redraw for macros auto-commands etc.
 
 "" hi Normal ctermbg=NONE guibg=NONE
 "" hi Folded ctermbg=NONE guibg=NONE

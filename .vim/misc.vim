@@ -22,4 +22,3 @@ augroup FileTypeCommands
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 	autocmd FileType html,sh setlocal shiftwidth=2 tabstop=2
 augroup END
-

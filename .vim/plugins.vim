@@ -22,7 +22,6 @@ call plug#begin('~/.vim/vim-plug')
     Plug        'vimwiki/vimwiki'
     " Python:
     Plug        'nvie/vim-flake8'
-    Plug        'vim-python/python-syntax'
     " Tex:
     "" Plug        'lervag/vimtex', { 'for': ['tex'] }
     " Markdown:
