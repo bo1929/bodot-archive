@@ -2,11 +2,7 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Run PlugInstall if there are missing plugins.
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
+endif " Run PlugInstall if there are missing plugins. autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
 call plug#begin('~/.vim/vim-plug')
@@ -22,6 +18,7 @@ call plug#begin('~/.vim/vim-plug')
     Plug        'vimwiki/vimwiki'
     " Python:
     Plug        'nvie/vim-flake8'
+    Plug        'psf/black'
     " Tex:
     "" Plug        'lervag/vimtex', { 'for': ['tex'] }
     " Markdown:
@@ -58,9 +55,6 @@ let g:airline#extensions#obsession#indicator_text='$'
 let g:airline#extensions#vimtex#enabled = 1
 let g:airline#extensions#vimtex#continuous = "c"
 " }}}
-" === python-syntax === {{{
-let g:python_highlight_all = 1
-" }}}
 " === UltiSnips === {{{
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -83,4 +77,5 @@ let g:everforest_enable_italic = 1
 " }}}
 " === vim-auto-popmenu === {{{
 let g:apc_enable_ft = {'*':1}
+let g:apc_enable_tab = get(g:, 'apc_enable_tab', 0)
 " }}}

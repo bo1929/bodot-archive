@@ -3,7 +3,7 @@ nnoremap <Space> <Nop>
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
-" Select all text in buffer.
+" Visual select all text in buffer.
 map <leader>va ggVG
 
 " Better yank and paste, use + register.

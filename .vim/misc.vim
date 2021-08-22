@@ -22,3 +22,12 @@ augroup FileTypeCommands
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 	autocmd FileType html,sh setlocal shiftwidth=2 tabstop=2
 augroup END
+
+" Plugin AutoCommands:
+augroup LintPython
+    autocmd BufWritePost *.py call flake8#Flake8()
+augroup END
+augroup FormatPython
+    autocmd BufWritePre *.py execute ':Black'
+    autocmd FileType python nnoremap <buffer> <F9> :Black<CR>
+augroup END
