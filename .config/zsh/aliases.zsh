@@ -7,10 +7,13 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 # Show hidden files
 alias l.='ls -d .* --color=auto'
-# some more ls aliases
+# Some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+# Give exa a chance
+alias ls='exa'
+alias ls='exa'
 ## alias dir='dir --color=auto'
 ## alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'

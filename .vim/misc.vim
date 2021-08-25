@@ -16,6 +16,7 @@ augroup ResetCursorShape
     au!
     autocmd VimEnter * :normal :startinsert :stopinsert 
 augroup END
+
 augroup FileTypeCommands
     autocmd!
 	" Disale auto-comment insertion:
