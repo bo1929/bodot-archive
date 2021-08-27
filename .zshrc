@@ -8,12 +8,6 @@ fi
 path_dircolors="${HOME}/.config/zsh/.dircolors" 
 test -r ${path_dircolors} && eval $(dircolors ${path_dircolors})
 
-## Source conda initializaiton:
-conda_path="${HOME}/.config/zsh/conda.zsh" 
-if [[ -e ${conda_path} ]]; then
-    source ${conda_path}
-fi
-
 ## Source aliases:
 path_aliases="${HOME}/.config/zsh/aliases.zsh" 
 if [[ -e ${path_aliases} ]]; then

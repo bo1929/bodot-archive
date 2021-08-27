@@ -59,5 +59,5 @@ preexec() { echo -ne '\e[5 q' ;}
 bindkey '^R' history-incremental-search-backward
 
 # Directory shortcuts
-hash -d ethologger="${HOME}/works/ethologger"
-hash -d dypoces="${HOME}/works/dypoces"
+hash -d ethologger="${HOME}/work/ethologger"
+hash -d dypoces="${HOME}/work/dypoces"

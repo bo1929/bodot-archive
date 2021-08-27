@@ -22,7 +22,7 @@ call plug#begin('~/.vim/vim-plug')
     Plug        'vimwiki/vimwiki'
     " Python:
     Plug        'nvie/vim-flake8'
-    "" Plug        'psf/black', {'for': 'python', 'branch': 'stable' }
+    Plug        'psf/black', {'for': 'python'}
     " Tex:
     Plug        'lervag/vimtex'
     " Markdown:
@@ -69,7 +69,7 @@ let g:vimtex_quickfix_autoclose_after_keystrokes=3
 let g:vimtex_view_method = 'zathura'
 " }}}
 " === gruvbox === {{{
-"" let g:gruvbox_italic=1
+let g:gruvbox_italic=1
 " }}}
 " === material-color === {{{
 let g:material_terminal_italics = 1
@@ -82,4 +82,7 @@ let g:everforest_enable_italic = 1
 " === vim-auto-popmenu === {{{
 let g:apc_enable_ft = {'*':1}
 let g:apc_enable_tab = get(g:, 'apc_enable_tab', 0)
+" }}}
+" === black === {{{
+let g:black_virtualenv = "~/.local/pipx/venvs/black"
 " }}}
