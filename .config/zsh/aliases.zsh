@@ -1,6 +1,3 @@
-# To track configurations and dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/Files/misc/bodot/ --work-tree=$HOME'
-
 # Colorize the ls output
 alias ls='ls --color=auto'
 # Use a long listing format
@@ -19,6 +16,9 @@ alias ls='exa'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# To track configurations and dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/misc/bodot/ --work-tree=$HOME'
 
 # ssh aliases
 # set TERM

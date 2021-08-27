@@ -22,7 +22,7 @@ call plug#begin('~/.vim/vim-plug')
     Plug        'vimwiki/vimwiki'
     " Python:
     Plug        'nvie/vim-flake8'
-    Plug        'psf/black', {'for': 'python', 'branch': 'stable' }
+    "" Plug        'psf/black', {'for': 'python', 'branch': 'stable' }
     " Tex:
     Plug        'lervag/vimtex'
     " Markdown:
@@ -35,8 +35,8 @@ let g:flake8_cmd="/home/bo/.local/bin/flake8"
 let g:flake8_show_in_file=1 " show
 " }}}
 " === vimwiki === {{{
-let g:vimwiki_list = [{'path': '~/Files/misc/notes/vimwiki-notes',
-            \'path_html': '~/Files/misc/notes/vimwiki-notes/html-output/'}]
+let g:vimwiki_list = [{'path': '~/notes/vimwiki',
+            \'path_html': '~/notes/vimwiki/html-output/'}]
 " }}}
 " === lightline === {{{
 let g:lightline = {
