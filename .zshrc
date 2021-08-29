@@ -1,34 +1,39 @@
-## Source misc:
-path_misc="${HOME}/.config/zsh/misc.sh" 
-if [[ -e ${path_misc} ]]; then
-    source ${path_misc}
+# Source misc.
+ZSH_MISC="${HOME}/.config/zsh/misc.sh" 
+if [[ -e ${ZSH_MISC} ]]; then
+    source ${ZSH_MISC}
 fi
 
-## Source dir_colors:
-path_dircolors="${HOME}/.config/zsh/.dircolors" 
-test -r ${path_dircolors} && eval $(dircolors ${path_dircolors})
+# Source dir_colors.
+ZSH_DIZSHOLORS="${HOME}/.config/zsh/.dircolors" 
+test -r ${ZSH_DIZSHOLORS} && eval $(dircolors ${ZSH_DIZSHOLORS})
 
-## Source aliases:
-path_aliases="${HOME}/.config/zsh/aliases.zsh" 
-if [[ -e ${path_aliases} ]]; then
-    source ${path_aliases}
+# Source aliases:
+ZSH_ALIASES="${HOME}/.config/zsh/aliases.zsh" 
+if [[ -e ${ZSH_ALIASES} ]]; then
+    source ${ZSH_ALIASES}
 fi
 
-path_completion="${HOME}/.config/zsh/zsh-completions/src" 
-fpath=(${path_completion} ${fpath})
-
-path_suggestions="${HOME}/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" 
-if [[ -e ${path_suggestions} ]]; then
-    source ${path_suggestions}
+# Source plugins.
+ZSH_PLUGINS="${HOME}/.config/zsh/plugins.zsh" 
+if [[ -e ${ZSH_PLUGINS} ]]; then
+    source ${ZSH_PLUGINS}
 fi
 
-## Source source configuration:
-path_main="${HOME}/.config/zsh/main.zsh" 
-if [[ -e ${path_main} ]]; then
-    source ${path_main}
+# Source main configuration.
+ZSH_MAIN="${HOME}/.config/zsh/main.zsh" 
+if [[ -e ${ZSH_MAIN} ]]; then
+    source ${ZSH_MAIN}
 fi
 
-path_syntax="${HOME}/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
-if [[ -e ${path_syntax} ]]; then
-    source ${path_syntax}
+# Zsh-Syntax-Highlighting, this must be sourced last.
+DIR_ZSH_SYNTAX_HIGHLIGHTING="${HOME}/.config/zsh/zsh-syntax-highlighting"
+if [ ! -d ${DIR_ZSH_SYNTAX_HIGHLIGHTING} ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${DIR_ZSH_SYNTAX_HIGHLIGHTING}
 fi
+ZSH_SYNTAX_HIGHLIGHTING="${ZSH_SYNTAX_HIGHLIGHTING}/zsh-syntax-highlighting.zsh"
+if [[ -e ${ZSH_SYNTAX_HIGHLIGHTING} ]]; then
+        source ${ZSH_SYNTAX_HIGHLIGHTING}/zsh-syntax-highlighting.zsh
+fi
+
+# Done!
