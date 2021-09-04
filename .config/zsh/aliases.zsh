@@ -10,7 +10,6 @@ alias la='ls -A'
 alias l='ls -CF'
 # Give exa a chance
 alias ls='exa'
-alias ls='exa'
 ## alias dir='dir --color=auto'
 ## alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'

@@ -20,21 +20,15 @@ ctrl + alt + f
 
 ## program launcher
 super + d
-    rofi -modi drun -show drun -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal alacritty \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+    rofi -modi drun -show drun -line-padding 4 -show-icons
 
 ## show open window
 super + ctrl + d
-    rofi -modi drun -show window -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal alacritty \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+    rofi -modi drun -show window  -line-padding 4 -show-icons
 
 ## show ssh sesssions
 super + shift + d
-    rofi -modi drun -show ssh -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal alacritty \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+    rofi -modi drun -show ssh -line-padding 4 -show-icons
 
 ## power-menu 
 super + shift + e
@@ -178,7 +172,7 @@ XF86MonBrightnessDown
 
 ## Screenshot
 Print
-    scrot ~/Pictures/Screenshot-$(date +%F_%T).png
+    scrot ~/media/pictures/Screenshot-$(date +%F_%T).png
 
 super+Print
     ~/.config/bspwm/scripts/screenshot.sh

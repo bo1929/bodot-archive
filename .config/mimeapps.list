@@ -1,0 +1,6 @@
+[Default Applications]
+inode/directory=lf.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/postscript=org.pwmt.zathura.desktop
+image/vnd.djvu=org.pwmt.zathura.desktop
+text/plain=vim.desktop

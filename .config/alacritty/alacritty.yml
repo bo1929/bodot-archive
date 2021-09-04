@@ -1,5 +1,6 @@
 import:
   - ~/.config/alacritty/colorschemes/everforest.yml
+
   - ~/.config/alacritty/key_bindings.yml
 env:
   TERM: alacritty
@@ -13,8 +14,8 @@ window:
     y: 5
 
   title: Alacritty
-
   dynamic_title: true
+
 scrolling:
   history: 10000
   multiplier: 3
@@ -23,14 +24,13 @@ font:
   normal:
     family: Iosevka Term
     style: Regular
+  bold:
+    family: Iosevka Term
+    style: Bold
 
-##  bold:
-##    family: Iosevka Term
-##    style: Bold
-##
-##  italic:
-##    family: Iosevka Term
-##    style: Italic
+  italic:
+    family: Iosevka Term
+    style: Italic
 
   bold_italic:
     family: iosevka
@@ -42,7 +42,7 @@ font:
     x: 0
     y: 0
 
-background_opacity: .9
+background_opacity: 0.85
 
 cursor:
   style:

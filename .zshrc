@@ -1,39 +1,41 @@
 # Source misc.
-ZSH_MISC="${HOME}/.config/zsh/misc.sh" 
-if [[ -e ${ZSH_MISC} ]]; then
-    source ${ZSH_MISC}
+ZSH_MISC_PATH="${HOME}/.config/zsh/misc.sh" 
+if [[ -e ${ZSH_MISC_PATH} ]]; then
+    source ${ZSH_MISC_PATH}
 fi
 
 # Source dir_colors.
-ZSH_DIZSHOLORS="${HOME}/.config/zsh/.dircolors" 
-test -r ${ZSH_DIZSHOLORS} && eval $(dircolors ${ZSH_DIZSHOLORS})
+ZSH_DIRCOLORS_PATH="${HOME}/.config/zsh/.dircolors" 
+test -r ${ZSH_DIRCOLORS_PATH} && eval $(dircolors ${ZSH_DIRCOLORS_PATH})
 
 # Source aliases:
-ZSH_ALIASES="${HOME}/.config/zsh/aliases.zsh" 
-if [[ -e ${ZSH_ALIASES} ]]; then
-    source ${ZSH_ALIASES}
+ZSH_ALIASES_PATH="${HOME}/.config/zsh/aliases.zsh" 
+if [[ -e ${ZSH_ALIASES_PATH} ]]; then
+    source ${ZSH_ALIASES_PATH}
 fi
 
 # Source plugins.
-ZSH_PLUGINS="${HOME}/.config/zsh/plugins.zsh" 
-if [[ -e ${ZSH_PLUGINS} ]]; then
-    source ${ZSH_PLUGINS}
+ZSH_PLUGINS_PATH="${HOME}/.config/zsh/plugins.zsh" 
+if [[ -e ${ZSH_PLUGINS_PATH} ]]; then
+    source ${ZSH_PLUGINS_PATH}
 fi
 
 # Source main configuration.
-ZSH_MAIN="${HOME}/.config/zsh/main.zsh" 
-if [[ -e ${ZSH_MAIN} ]]; then
-    source ${ZSH_MAIN}
+ZSH_MAIN_PATH="${HOME}/.config/zsh/main.zsh" 
+if [[ -e ${ZSH_MAIN_PATH} ]]; then
+    source ${ZSH_MAIN_PATH}
 fi
 
 # Zsh-Syntax-Highlighting, this must be sourced last.
-DIR_ZSH_SYNTAX_HIGHLIGHTING="${HOME}/.config/zsh/zsh-syntax-highlighting"
-if [ ! -d ${DIR_ZSH_SYNTAX_HIGHLIGHTING} ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${DIR_ZSH_SYNTAX_HIGHLIGHTING}
-fi
-ZSH_SYNTAX_HIGHLIGHTING="${ZSH_SYNTAX_HIGHLIGHTING}/zsh-syntax-highlighting.zsh"
-if [[ -e ${ZSH_SYNTAX_HIGHLIGHTING} ]]; then
-        source ${ZSH_SYNTAX_HIGHLIGHTING}/zsh-syntax-highlighting.zsh
-fi
+## ZSH_SYNTAX_HIGHLIGHTING_DIR="${HOME}/.config/zsh/zsh-syntax-highlighting"
+## if [ ! -d ${ZSH_SYNTAX_HIGHLIGHTING_DIR} ]; then
+##     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+##         ${ZSH_SYNTAX_HIGHLIGHTING_DIR}
+## fi
+## 
+## ZSH_SYNTAX_HIGHLIGHTING_PATH="${ZSH_SYNTAX_HIGHLIGHTING_DIR}/zsh-syntax-highlighting.zsh"
+## if [[ -e ${ZSH_SYNTAX_HIGHLIGHTING_PATH} ]]; then
+##     source ${ZSH_SYNTAX_HIGHLIGHTING_PATH}
+## fi
 
 # Done!
