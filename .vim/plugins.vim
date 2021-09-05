@@ -43,37 +43,9 @@ let g:lightline = {
           \ 'colorscheme': 'everforest',
       \ }
 " }}}
-" === vim-airline === {{{
-let g:airline_powerline_fonts=1
-let g:airline_statusline_ontop=1
-
-let g:airline_extensions = []
-
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_buffers=1
-let g:airline#extensions#tabline#buffer_idx_mode =1
-
-let g:airline#extensions#obsession#enabled=1
-let g:airline#extensions#obsession#indicator_text='$'
-
-let g:airline#extensions#vimtex#enabled = 1
-let g:airline#extensions#vimtex#continuous = "c"
-" }}}
-" === UltiSnips === {{{
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" }}}
 " === vimtex === {{{ 
 let g:vimtex_quickfix_autoclose_after_keystrokes=3
 let g:vimtex_view_method = 'zathura'
-" }}}
-" === gruvbox === {{{
-let g:gruvbox_italic=1
-" }}}
-" === material-color === {{{
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'palenight'
 " }}}
 " === everforest === {{{
 let g:everforest_transparent_background = 1

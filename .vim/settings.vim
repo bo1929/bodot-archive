@@ -30,22 +30,22 @@ set guicursor+=a:blinkon0       " Stop cursor blanking.
 " }}}
 
 " === Directories === {{{
-let swap_directory = $HOME . './tmp/vim/swap/'
-if filereadable(swap_directory)
-    set dir=swap_directory
+let swap_directory = $HOME . '/.tmp/vim/swap'
+if isdirectory(swap_directory)
+    let &dir=swap_directory
 endif
 " Set backup location and backup.
 set backup
-let backup_directory = $HOME . './tmp/vim/backup/'
-if filereadable(backup_directory)
-    set backupdir=backup_directory
+let backup_directory = $HOME . '/.tmp/vim/backup'
+if isdirectory(backup_directory)
+    let &backupdir=backup_directory
 endif
 " Set undodir and undofile.
 set undofile
 set undoreload=50000
-let undo_directory = $HOME . './tmp/vim/undo/'
-if filereadable(undo_directory)
-    set undodir=undo_directory
+let undo_directory = $HOME . '/.tmp/vim/undo'
+if isdirectory(undo_directory)
+    let &undodir=undo_directory
 endif
 " }}}
 
