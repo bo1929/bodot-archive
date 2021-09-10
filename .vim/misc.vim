@@ -10,6 +10,9 @@ function! TwiddleCase(str)
   return result
 endfunction
 
+" Append timestamps.
+command! AppendDate :normal a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
 " AutoCommands:
 " Reset cursor on startup
 augroup ResetCursorShape

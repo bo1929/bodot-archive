@@ -24,17 +24,17 @@ font:
   normal:
     family: Iosevka Term
     style: Regular
-  bold:
-    family: Iosevka Term
-    style: Bold
+    ## bold:
+    ##   family: Iosevka Term
+    ##   style: Bold
 
-  italic:
-    family: Iosevka Term
-    style: Italic
+    ## italic:
+    ##   family: Iosevka Term
+    ##   style: Italic
 
-  bold_italic:
-    family: iosevka
-    style: Bold Italic
+    ## bold_italic:
+    ##   family: iosevka
+    ##   style: Bold Italic
 
   size: 11.0
 

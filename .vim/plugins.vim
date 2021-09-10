@@ -35,8 +35,12 @@ let g:flake8_cmd="/home/bo/.local/bin/flake8"
 let g:flake8_show_in_file=1 " show
 " }}}
 " === vimwiki === {{{
-let g:vimwiki_list = [{'path': '~/notes/vimwiki',
-            \'path_html': '~/notes/vimwiki/html-output/'}]
+let wiki_markdown = {'path': '~/notes/markdown/',
+                \ 'syntax': 'markdown', 'ext': '.md',
+                \'path_html': '~/notes/markdown/html-output/'}
+let wiki_vimwiki = {'path': '~/notes/vimwiki',
+            \'path_html': '~/notes/vimwiki/html-output/'}
+let g:vimwiki_list = [wiki_vimwiki, wiki_markdown]
 " }}}
 " === lightline === {{{
 let g:lightline = {
