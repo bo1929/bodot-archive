@@ -17,6 +17,7 @@ call plug#begin('~/.vim/vim-plug')
     Plug        'tpope/vim-unimpaired'
     Plug        'machakann/vim-sandwich'
     Plug        'ludovicchabant/vim-gutentags'
+    Plug        'andymass/vim-matchup'
     Plug        'skywind3000/vim-auto-popmenu'
     " Wiki:
     Plug        'vimwiki/vimwiki'
@@ -48,6 +49,9 @@ let g:lightline = {
       \ }
 " }}}
 " === vimtex === {{{ 
+let g:tex_fast = ""
+let g:vimtex_fold_manual = 1
+let g:vimtex_matchparen_enabled = 0
 let g:vimtex_quickfix_autoclose_after_keystrokes=3
 let g:vimtex_view_method = 'zathura'
 " }}}
@@ -56,7 +60,7 @@ let g:everforest_transparent_background = 1
 let g:everforest_enable_italic = 1
 " }}}
 " === vim-auto-popmenu === {{{
-let g:apc_enable_ft = {'*':1}
+let g:apc_enable_ft = {'python':1}
 let g:apc_enable_tab = get(g:, 'apc_enable_tab', 0)
 " }}}
 " === black === {{{
