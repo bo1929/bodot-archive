@@ -8,10 +8,9 @@ alias l.='ls -d .* --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-# Give exa a chance
-alias ls='exa'
-## alias dir='dir --color=auto'
-## alias vdir='vdir --color=auto'
+# Make them colorful.
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -23,15 +22,19 @@ alias config='/usr/bin/git --git-dir=$HOME/misc/bodot/ --work-tree=$HOME'
 # set TERM
 alias ssh='TERM=xterm-256color ssh'
 
+#
 # Third-party applications
+#
 # lfcd.
 LFCD="/home/bo/.config/lf/lfcd.sh"
 if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
-# signal with tray.
+# Signal with tray.
 alias signal="signal-desktop --use-tray-icon"
-# cat with wings.
+# Cat with wings.
 alias cat=bat
-# zathura leaves terminal.
+# Zathura leaves terminal.
 alias zathura="zathura --fork"
+# Give exa a chance
+alias ls='exa'

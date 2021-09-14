@@ -61,3 +61,4 @@ bindkey '^R' history-incremental-search-backward
 # Directory shortcuts
 hash -d ethologger="${HOME}/work/ethologger"
 hash -d dypoces="${HOME}/work/dypoces"
+hash -d paper-dypoces="${HOME}/research/dypoces/paper"

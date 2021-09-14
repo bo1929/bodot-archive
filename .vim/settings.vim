@@ -52,9 +52,10 @@ endif
 " === Indentation === {{{
 set autoindent              " New lines inherit indentation.
 set expandtab               " Convert tabs to spaces.
-set tabstop=4               " Show existing tab with 4 spaces width.
-set shiftwidth=4            " When indenting with '>', use 4 spaces width.
 set shiftround              " Round the indent to a multiple of shiftwidth.
+set tabstop=2               " Show existing tab with 2 spaces width (default).
+set shiftwidth=2            " When indenting with '>', use 2 spaces width (default).
+set softtabstop=2
 " }}}
 
 " === Screen Splitting === {{{
