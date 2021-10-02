@@ -5,3 +5,8 @@ application/postscript=org.pwmt.zathura.desktop
 image/vnd.djvu=org.pwmt.zathura.desktop
 text/plain=vim.desktop
 application/zip=xarchiver.desktop
+
+[Added Associations]
+application/x-bibtex=xed.desktop;
+text/plain=org.pwmt.zathura.desktop;
+text/x-tex=vim.desktop;
