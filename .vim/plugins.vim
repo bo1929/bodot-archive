@@ -12,13 +12,14 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.vim/vim-plug')
   Plug        'sainnhe/everforest'
   Plug        'itchyny/lightline.vim'
-  Plug        'tpope/vim-vinegar'
+  Plug        'andymass/vim-matchup'
   Plug        'tpope/vim-obsession'
+  Plug        'takac/vim-hardtime'
+  Plug        'tpope/vim-vinegar'
   Plug        'tpope/vim-unimpaired'
   Plug        'machakann/vim-sandwich'
-  Plug        'ludovicchabant/vim-gutentags'
-  "" Plug        'andymass/vim-matchup'
   Plug        'skywind3000/vim-auto-popmenu'
+  Plug        'ludovicchabant/vim-gutentags'
   " Wiki:
   Plug        'vimwiki/vimwiki'
   " Python:
@@ -27,8 +28,13 @@ call plug#begin('~/.vim/vim-plug')
   " Tex:
   Plug        'lervag/vimtex'
   " Markdown:
-  "" Plugin       'godlygeek/tabular'
-  "" Plugin       'plasticboy/vim-markdown'
+  "" Plug        'godlygeek/tabular'
+  "" Plug        'plasticboy/vim-markdown'
+  " Related:
+  "" Plug        'tpope/vim-fugitive'
+  "" Plug        'tpope/vim-eunuch'
+  "" Plug        'tpope/vim-commentary'
+  "" Plug        'tpope/vim-abolish'
 call plug#end()
 
 " === flake8 === {{{
@@ -66,4 +72,9 @@ let g:apc_enable_tab = get(g:, 'apc_enable_tab', 0)
 " }}}
 " === black === {{{
 let g:black_virtualenv = "~/.local/pipx/venvs/black"
+" }}}
+" === hardtime === {{{
+let g:hardtime_maxcount = 3
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_default_on = 1
 " }}}

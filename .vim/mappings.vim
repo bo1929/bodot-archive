@@ -4,14 +4,14 @@ let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
 " Visual select all text in buffer.
-map <leader>va ggVG
+map <leader>a ggVG
 
 " Better yank and paste, use + register.
 noremap <leader>y "+y
 noremap <leader>p "+p
 
-" Use <leader><leader> to toggle to the last buffer.
-nnoremap <leader><leader> <c-^>
+" Use <leader>b to toggle to the last buffer.
+nnoremap <leader>b <c-^>
 
 " Run last macro with Q.
 nnoremap Q @@

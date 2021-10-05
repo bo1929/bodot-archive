@@ -26,6 +26,7 @@ augroup FileTypeCommands
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   autocmd FileType html,sh,tex setlocal tabstop=2 shiftwidth=2 softtabstop=2
   autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd FileType md,vimwiki setlocal nowrap
 augroup END
 
 " Plugin AutoCommands:
