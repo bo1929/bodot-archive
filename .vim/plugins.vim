@@ -10,71 +10,92 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin('~/.vim/vim-plug')
-  Plug        'sainnhe/everforest'
-  Plug        'itchyny/lightline.vim'
-  Plug        'andymass/vim-matchup'
-  Plug        'tpope/vim-obsession'
-  Plug        'takac/vim-hardtime'
-  Plug        'tpope/vim-vinegar'
-  Plug        'tpope/vim-unimpaired'
+  " Section: Core
   Plug        'machakann/vim-sandwich'
-  Plug        'skywind3000/vim-auto-popmenu'
   Plug        'ludovicchabant/vim-gutentags'
-  " Wiki:
-  Plug        'vimwiki/vimwiki'
-  " Python:
-  Plug        'nvie/vim-flake8'
-  Plug        'psf/black', {'for': 'python'}
-  " Tex:
-  Plug        'lervag/vimtex'
-  " Markdown:
-  "" Plug        'godlygeek/tabular'
-  "" Plug        'plasticboy/vim-markdown'
-  " Related:
+  Plug        'tpope/vim-vinegar'
+  Plug        'tpope/vim-obsession'
+  Plug        'tpope/vim-unimpaired'
   "" Plug        'tpope/vim-fugitive'
   "" Plug        'tpope/vim-eunuch'
   "" Plug        'tpope/vim-commentary'
   "" Plug        'tpope/vim-abolish'
-call plug#end()
-
-" === flake8 === {{{
-let g:flake8_cmd="/home/bo/.local/bin/flake8"
-let g:flake8_show_in_file=1 " show
+  " Section: Useful But Not Essential
+" === vim-auto-popmenu === {{{
+  Plug        'skywind3000/vim-auto-popmenu'
+  let g:apc_enable_ft = {'tex':0, 'python':1}
+  let g:apc_enable_tab = get(g:, 'apc_enable_tab', 0)
 " }}}
-" === vimwiki === {{{
-let wiki_markdown = {'path': '~/notes/markdown/',
-                \ 'syntax': 'markdown', 'ext': '.md',
-                \'path_html': '~/notes/markdown/html-output/'}
-let wiki_vimwiki = {'path': '~/notes/vimwiki',
-            \'path_html': '~/notes/vimwiki/html-output/'}
-let g:vimwiki_list = [wiki_vimwiki, wiki_markdown]
+" === ctrlp === {{{
+  Plug        'ctrlpvim/ctrlp.vim'
+  " Use fd or rg for ctrlp.
+  if executable('fd')
+      let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+      let g:ctrlp_use_caching = 0
+  elseif executable('rg')
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  else
+    let g:ctrlp_clear_cache_on_exit = 0
+  endif
 " }}}
+  "" Plug        'andymass/vim-matchup'
+  " Section: Aesthetic:
 " === lightline === {{{
-let g:lightline = {
-          \  'colorscheme': 'everforest',
-      \ }
-" }}}
-" === vimtex === {{{ 
-"" let g:tex_fast = ""
-let g:vimtex_fold_manual = 1
-let g:vimtex_view_method = 'zathura'
-"" let g:vimtex_matchparen_enabled = 0
-let g:vimtex_quickfix_autoclose_after_keystrokes=3
+  Plug        'itchyny/lightline.vim'
+  let g:lightline = {
+            \  'colorscheme': 'everforest',
+        \ }
 " }}}
 " === everforest === {{{
-let g:everforest_transparent_background = 1
-let g:everforest_background = 'hard'
-let g:everforest_enable_italic = 1
+  Plug        'sainnhe/everforest'
+  let g:everforest_transparent_background = 1
+  let g:everforest_background = 'hard'
+  let g:everforest_enable_italic = 1
 " }}}
-" === vim-auto-popmenu === {{{
-let g:apc_enable_ft = {'tex':0, 'python':0}
-let g:apc_enable_tab = get(g:, 'apc_enable_tab', 0)
+  " Section: Writing and Note-taking
+  " === vimtex === {{{ 
+  if executable('latexmk')
+    Plug        'lervag/vimtex'
+    "" let g:tex_fast = ""
+    let g:vimtex_fold_manual = 1
+    if executable('zathura')
+      let g:vimtex_view_method = 'zathura'
+    endif
+    "" let g:vimtex_matchparen_enabled = 0
+    let g:vimtex_quickfix_autoclose_after_keystrokes=3
+  endif
+  " }}}
+" === vimwiki === {{{
+  Plug        'vimwiki/vimwiki'
+  let wiki_markdown = {'path': '~/notes/markdown/',
+                  \ 'syntax': 'markdown', 'ext': '.md',
+                  \'path_html': '~/notes/markdown/html-output/'}
+  let wiki_vimwiki = {'path': '~/notes/vimwiki',
+              \'path_html': '~/notes/vimwiki/html-output/'}
+  let g:vimwiki_list = [wiki_vimwiki, wiki_markdown]
 " }}}
-" === black === {{{
-let g:black_virtualenv = "~/.local/pipx/venvs/black"
+  " Section: Markdown
+  "" Plug        'godlygeek/tabular'
+  Plug        'plasticboy/vim-markdown'
+  " Section: Python Takeaway
+" === jupytext === {{{
+  if executable('jupytext')
+    Plug        'goerz/jupytext.vim'
+    let g:jupytext_fmt = 'py'
+  endif
 " }}}
-" === hardtime === {{{
-let g:hardtime_maxcount = 3
-let g:hardtime_ignore_quickfix = 1
-let g:hardtime_default_on = 1
-" }}}
+  " === flake8 === {{{
+  if executable('flake8')
+    Plug        'nvie/vim-flake8'
+    let g:flake8_cmd = $HOME . '/.local/bin/flake8'
+    let g:flake8_show_in_file=1 " show
+  endif
+  " }}}
+  " === black === {{{
+  if executable('black')
+    Plug        'psf/black', {'for': 'python'}
+    let g:black_virtualenv = $HOME . "/.local/pipx/venvs/black"
+  endif
+  " }}}
+call plug#end()

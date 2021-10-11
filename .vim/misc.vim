@@ -13,7 +13,7 @@ endfunction
 " Append timestamps.
 command! AppendDate :normal a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
-" AutoCommands:
+" {{{ === AutoCommands ===
 " Reset cursor on startup
 augroup ResetCursorShape
   au!
@@ -29,7 +29,6 @@ augroup FileTypeCommands
   autocmd FileType md,vimwiki setlocal nowrap
 augroup END
 
-" Plugin AutoCommands:
 augroup LintPython
   autocmd BufWritePost *.py call flake8#Flake8()
 augroup END
@@ -37,3 +36,4 @@ augroup FormatPython
   autocmd BufWritePre *.py execute ':Black'
   autocmd FileType python nnoremap <buffer> <F9> :Black<CR>
 augroup END
+" }}}

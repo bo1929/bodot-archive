@@ -61,4 +61,4 @@ bindkey '^R' history-incremental-search-backward
 # Directory shortcuts
 hash -d ethologger="${HOME}/work/ethologger"
 hash -d MuDCoD="${HOME}/work/MuDCoD"
-hash -d paper-MuDCoD="${HOME}/research/MuDCoD/paper"
+hash -d research-MuDCoD="${HOME}/research/MuDCoD/"

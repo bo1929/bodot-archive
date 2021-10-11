@@ -4,7 +4,7 @@ let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
 " Visual select all text in buffer.
-map <leader>a ggVG
+map <C-v>a ggVG
 
 " Better yank and paste, use + register.
 noremap <leader>y "+y
