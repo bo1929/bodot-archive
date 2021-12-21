@@ -29,11 +29,15 @@ augroup FileTypeCommands
   autocmd FileType md,vimwiki setlocal nowrap
 augroup END
 
-augroup LintPython
-  autocmd BufWritePost *.py call flake8#Flake8()
-augroup END
-augroup FormatPython
-  autocmd BufWritePre *.py execute ':Black'
-  autocmd FileType python nnoremap <buffer> <F9> :Black<CR>
-augroup END
+if executable('black')
+  augroup FormatPython
+    autocmd BufWritePre *.py execute ':Black'
+    autocmd FileType python nnoremap <buffer> <F9> :Black<CR>
+  augroup END
+endif
+if executable('flake8')
+  augroup LintPython
+    autocmd BufWritePost *.py call flake8#Flake8()
+  augroup END
+endif
 " }}}
