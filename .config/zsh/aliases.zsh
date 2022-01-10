@@ -15,9 +15,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# To track configurations and dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/misc/bodot/ --work-tree=$HOME'
-
 # ssh aliases
 # set TERM
 alias ssh='TERM=xterm-256color ssh'
@@ -31,7 +28,7 @@ if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
 # Signal with tray.
-alias signal="signal-desktop --use-tray-icon"
+alias signal-desktop="signal-desktop --use-tray-icon"
 # Feh image viewer, default options.
 alias feh="feh --scale-down --image-bg white"
 # Cat with wings.
@@ -40,3 +37,11 @@ alias cat=bat
 alias zathura="zathura --fork"
 # Give exa a chance
 alias ls='exa -snew'
+
+# Directory shortcuts
+hash -d basty="${HOME}/work/basty"
+hash -d MuDCoD="${HOME}/work/MuDCoD"
+hash -d research-MuDCoD="${HOME}/research/MuDCoD/"
+
+# To track configurations and dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/misc/bodot/ --work-tree=$HOME'

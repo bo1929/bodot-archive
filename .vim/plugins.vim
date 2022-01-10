@@ -10,21 +10,23 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin('~/.vim/vim-plug')
-  " Section: Core
-  Plug        'machakann/vim-sandwich'
   Plug        'ludovicchabant/vim-gutentags'
+  Plug        'machakann/vim-sandwich'
   Plug        'tpope/vim-vinegar'
   Plug        'tpope/vim-obsession'
   Plug        'tpope/vim-unimpaired'
+  Plug        'tpope/vim-commentary'
+  Plug        'tpope/vim-sleuth'
   "" Plug        'tpope/vim-fugitive'
   "" Plug        'tpope/vim-eunuch'
-  "" Plug        'tpope/vim-commentary'
   "" Plug        'tpope/vim-abolish'
-  " Section: Useful But Not Essential
+" === quick-scope === {{{
+  Plug 'unblevable/quick-scope' 
+  let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" }}}
 " === vim-auto-popmenu === {{{
-  Plug        'skywind3000/vim-auto-popmenu'
-  let g:apc_enable_ft = {'tex':0, 'python':1}
-  let g:apc_enable_tab = get(g:, 'apc_enable_tab', 0)
+  Plug        'bo1929/vim-auto-popmenu'
+  let g:apc_enable_ft = {"*":1}
 " }}}
 " === ctrlp === {{{
   Plug        'ctrlpvim/ctrlp.vim'
@@ -39,21 +41,21 @@ call plug#begin('~/.vim/vim-plug')
     let g:ctrlp_clear_cache_on_exit = 0
   endif
 " }}}
-  "" Plug        'andymass/vim-matchup'
-  " Section: Aesthetic:
 " === lightline === {{{
   Plug        'itchyny/lightline.vim'
   let g:lightline = {
-            \  'colorscheme': 'everforest',
+            \  'colorscheme': 'nord',
         \ }
 " }}}
-" === everforest === {{{
-  Plug        'sainnhe/everforest'
-  let g:everforest_transparent_background = 1
-  let g:everforest_background = 'hard'
-  let g:everforest_enable_italic = 1
+" === nord === {{{
+  Plug 'arcticicestudio/nord-vim'
 " }}}
-  " Section: Writing and Note-taking
+" === everforest === {{{
+  "" Plug        'sainnhe/everforest'
+  "" let g:everforest_transparent_background = 1
+  "" let g:everforest_background = 'hard'
+  "" let g:everforest_enable_italic = 1
+" }}}
   " === vimtex === {{{ 
   if executable('latexmk')
     Plug        'lervag/vimtex'
@@ -68,17 +70,13 @@ call plug#begin('~/.vim/vim-plug')
   " }}}
 " === vimwiki === {{{
   Plug        'vimwiki/vimwiki'
-  let wiki_markdown = {'path': '~/notes/markdown/',
+  let wiki_markdown = {'path': $HOME . '/notes/markdown/',
                   \ 'syntax': 'markdown', 'ext': '.md',
-                  \'path_html': '~/notes/markdown/html-output/'}
+                  \'path_html': $HOME . '/notes/markdown/html-output/'}
   let wiki_vimwiki = {'path': '~/notes/vimwiki',
-              \'path_html': '~/notes/vimwiki/html-output/'}
+              \'path_html': $HOME . '/notes/vimwiki/html-output/'}
   let g:vimwiki_list = [wiki_vimwiki, wiki_markdown]
 " }}}
-  " Section: Markdown
-  "" Plug        'godlygeek/tabular'
-  Plug        'plasticboy/vim-markdown'
-  " Section: Python Takeaway
 " === jupytext === {{{
   if executable('jupytext')
     Plug        'goerz/jupytext.vim'

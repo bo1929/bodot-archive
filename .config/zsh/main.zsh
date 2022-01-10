@@ -2,8 +2,8 @@ export PATH="${HOME}/.local/bin:${PATH}"
 
 # Enable colors and change prompt.
 autoload -U colors && colors
-PS1="%B%{$fg[green]%}[%{$fg[blue]%}%n%{$fg[red]%}@%{$fg[yellow]%}%~%{$fg[green]%}]%{$reset_color%}$%b"
-RPROMPT="%{$fg[blue]%}[%D{%m/%f}|%T]%{$reset_color%}"
+PS1="%B%{$fg[yellow]%}[%{$fg[blue]%}%n%{$fg[red]%}@%{$fg[green]%}%~%{$fg[yellow]%}]%{$reset_color%}$%b"
+RPROMPT="%{$fg[red]%}[%D{%m/%f}|%T]%{$reset_color%}"
 
 # The following lines were added by compinstall.
 zstyle ':completion:*' completer _complete _ignored _correct
@@ -43,8 +43,8 @@ function zle-keymap-select () {
         viins|main) echo -ne '\e[5 q';; # beam
     esac
 }
-# Initiate `vi insert` as keymap
 zle -N zle-keymap-select
+# Initiate `vi insert` as keymap
 zle-line-init() {
     zle -K viins
     echo -ne "\e[5 q"
@@ -57,8 +57,3 @@ preexec() { echo -ne '\e[5 q' ;}
 # End of vi mode.
 
 bindkey '^R' history-incremental-search-backward
-
-# Directory shortcuts
-hash -d ethologger="${HOME}/work/ethologger"
-hash -d MuDCoD="${HOME}/work/MuDCoD"
-hash -d research-MuDCoD="${HOME}/research/MuDCoD/"

@@ -27,6 +27,8 @@ set foldmethod=marker           " Use markers to define folds.
 let &t_SI="\e[6 q"              " Change cursor while chaning mode.
 let &t_EI="\e[2 q"              " Change cursor while chaning mode.
 set guicursor+=a:blinkon0       " Stop cursor blanking.
+"" set cursorline
+"" set cursorcolumn
 " }}}
 
 " === Directories === {{{
@@ -86,7 +88,7 @@ if !has('gui_running')
     set t_Co=256
 endif
 
-colorscheme everforest
+colorscheme nord
 set background=dark
 
 set fillchars+=vert:\  " Set the vertical split character to a space.
@@ -98,6 +100,6 @@ syntax on               " Enable syntax highlighting.
 set re=1
 set lazyredraw          " Don't redraw for macros auto-commands etc.
 
-"" hi Normal ctermbg=NONE guibg=NONE
-"" hi Folded ctermbg=NONE guibg=NONE
+hi Normal ctermbg=NONE guibg=NONE
+hi Folded ctermbg=NONE guibg=NONE
 " }}}

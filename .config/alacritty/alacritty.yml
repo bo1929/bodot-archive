@@ -1,6 +1,5 @@
 import:
-  - ~/.config/alacritty/colorschemes/everforest.yml
-
+  - ~/.config/alacritty/colorschemes/nord.yml
   - ~/.config/alacritty/key_bindings.yml
 env:
   TERM: alacritty
@@ -42,7 +41,7 @@ font:
     x: 0
     y: 0
 
-background_opacity: 0.85
+background_opacity: 0.95
 
 cursor:
   style:
