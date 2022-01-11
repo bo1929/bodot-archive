@@ -26,6 +26,7 @@ augroup FileTypeCommands
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   autocmd FileType html,sh,tex setlocal tabstop=2 shiftwidth=2 softtabstop=2
   autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd FileType python set omnifunc=python3complete#Complete
   autocmd FileType md,vimwiki setlocal nowrap
 augroup END
 
@@ -37,7 +38,7 @@ if executable('black')
 endif
 if executable('flake8')
   augroup LintPython
-    autocmd BufWritePost *.py call flake8#Flake8()
+    autocmd FileType python nmap <silent> <F7> <Esc>:Khuno show<CR>
   augroup END
 endif
 " }}}

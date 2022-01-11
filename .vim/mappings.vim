@@ -27,4 +27,4 @@ noremap <Right> <Nop>
 
 " Clear \ register.
 " As a result remove highlighting.
-nnoremap \ :let @/=""<cr>
+nnoremap <silent> \ :let @/=""<cr>

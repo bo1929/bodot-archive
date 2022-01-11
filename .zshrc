@@ -27,15 +27,18 @@ if [[ -e ${ZSH_MAIN_PATH} ]]; then
 fi
 
 # Zsh-Syntax-Highlighting, this must be sourced last.
-## ZSH_SYNTAX_HIGHLIGHTING_DIR="${HOME}/.config/zsh/zsh-syntax-highlighting"
-## if [ ! -d ${ZSH_SYNTAX_HIGHLIGHTING_DIR} ]; then
-##     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-##         ${ZSH_SYNTAX_HIGHLIGHTING_DIR}
-## fi
-## 
-## ZSH_SYNTAX_HIGHLIGHTING_PATH="${ZSH_SYNTAX_HIGHLIGHTING_DIR}/zsh-syntax-highlighting.zsh"
-## if [[ -e ${ZSH_SYNTAX_HIGHLIGHTING_PATH} ]]; then
-##     source ${ZSH_SYNTAX_HIGHLIGHTING_PATH}
-## fi
+# ZSH_SYNTAX_HIGHLIGHTING_DIR="${HOME}/.config/zsh/zsh-syntax-highlighting"
+# if [ ! -d ${ZSH_SYNTAX_HIGHLIGHTING_DIR} ]; then
+#     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+#         ${ZSH_SYNTAX_HIGHLIGHTING_DIR}
+# fi
+# 
+# ZSH_SYNTAX_HIGHLIGHTING_PATH="${ZSH_SYNTAX_HIGHLIGHTING_DIR}/zsh-syntax-highlighting.zsh"
+# if [[ -e ${ZSH_SYNTAX_HIGHLIGHTING_PATH} ]]; then
+#     source ${ZSH_SYNTAX_HIGHLIGHTING_PATH}
+# fi
 
 # Done!
+
+# Created by `pipx` on 2021-12-21 17:31:57
+export PATH="$PATH:/home/bo/.local/bin"

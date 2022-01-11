@@ -12,17 +12,18 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.vim/vim-plug')
   Plug        'ludovicchabant/vim-gutentags'
   Plug        'machakann/vim-sandwich'
-  Plug        'tpope/vim-vinegar'
   Plug        'tpope/vim-obsession'
   Plug        'tpope/vim-unimpaired'
   Plug        'tpope/vim-commentary'
   Plug        'tpope/vim-sleuth'
-  "" Plug        'tpope/vim-fugitive'
-  "" Plug        'tpope/vim-eunuch'
-  "" Plug        'tpope/vim-abolish'
+  Plug        'tpope/vim-vinegar'
+  Plug        'tpope/vim-eunuch'
+  " Plug        'tpope/vim-fugitive'
+  " Plug        'tpope/vim-abolish'
 " === quick-scope === {{{
   Plug 'unblevable/quick-scope' 
   let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+  let g:qs_max_chars=120
 " }}}
 " === vim-auto-popmenu === {{{
   Plug        'bo1929/vim-auto-popmenu'
@@ -51,20 +52,20 @@ call plug#begin('~/.vim/vim-plug')
   Plug 'arcticicestudio/nord-vim'
 " }}}
 " === everforest === {{{
-  "" Plug        'sainnhe/everforest'
-  "" let g:everforest_transparent_background = 1
-  "" let g:everforest_background = 'hard'
-  "" let g:everforest_enable_italic = 1
+  " Plug        'sainnhe/everforest'
+  " let g:everforest_transparent_background = 1
+  " let g:everforest_background = 'hard'
+  " let g:everforest_enable_italic = 1
 " }}}
   " === vimtex === {{{ 
   if executable('latexmk')
     Plug        'lervag/vimtex'
-    "" let g:tex_fast = ""
+    " let g:tex_fast = ""
     let g:vimtex_fold_manual = 1
     if executable('zathura')
       let g:vimtex_view_method = 'zathura'
     endif
-    "" let g:vimtex_matchparen_enabled = 0
+    " let g:vimtex_matchparen_enabled = 0
     let g:vimtex_quickfix_autoclose_after_keystrokes=3
   endif
   " }}}
@@ -83,11 +84,11 @@ call plug#begin('~/.vim/vim-plug')
     let g:jupytext_fmt = 'py'
   endif
 " }}}
-  " === flake8 === {{{
+  " === khuno === {{{
   if executable('flake8')
-    Plug        'nvie/vim-flake8'
-    let g:flake8_cmd = $HOME . '/.local/bin/flake8'
-    let g:flake8_show_in_file=1 " show
+    Plug        'alfredodeza/khuno.vim'
+    let g:khuno_flake_cmd = $HOME . '/.local/bin/flake8'
+    let g:khuno_builtins="_,apply"
   endif
   " }}}
   " === black === {{{
@@ -95,5 +96,9 @@ call plug#begin('~/.vim/vim-plug')
     Plug        'psf/black', {'for': 'python'}
     let g:black_virtualenv = $HOME . "/.local/pipx/venvs/black"
   endif
+  " }}}
+  " == xptemplate == {{{
+  Plug	      'drmingdrmer/xptemplate'
+  let g:xptemplate_minimal_prefix = 0
   " }}}
 call plug#end()

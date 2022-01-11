@@ -16,7 +16,7 @@ set relativenumber                          " Show relative line numbers.
 set nojoinspaces                            " Separate sentences by a period and one space when using gq.
 set noesckeys                               " Immediately perceive Escape in insert mode.
 set ttyfast                                 " Indicates a fast terminal connection, smoother.
-"" set showcmd                                 " Display incomplete commands.
+" set showcmd                               " Display incomplete commands.
 " }}}
 
 " === Folding === {{{
@@ -27,8 +27,8 @@ set foldmethod=marker           " Use markers to define folds.
 let &t_SI="\e[6 q"              " Change cursor while chaning mode.
 let &t_EI="\e[2 q"              " Change cursor while chaning mode.
 set guicursor+=a:blinkon0       " Stop cursor blanking.
-"" set cursorline
-"" set cursorcolumn
+set nocursorline
+set nocursorcolumn
 " }}}
 
 " === Directories === {{{
@@ -73,6 +73,7 @@ set wildignorecase      " Case-insensitive search.
 
 " === Autocomplete === {{{
 set completeopt=menuone,noinsert,noselect,preview
+set omnifunc=syntaxcomplete#Complete
 set shortmess+=c " Don't give ins-completion-menu messages.
 " }}}
 
@@ -91,11 +92,11 @@ endif
 colorscheme nord
 set background=dark
 
-set fillchars+=vert:\  " Set the vertical split character to a space.
+set fillchars+=vert:\   " Set the vertical split character to a space.
 
 syntax on               " Enable syntax highlighting.
-"" syntax sync minlines=512
-"" syntax sync maxlines=1024
+syntax sync minlines=512
+syntax sync maxlines=1024
 
 set re=1
 set lazyredraw          " Don't redraw for macros auto-commands etc.
