@@ -20,43 +20,43 @@ call plug#begin('~/.vim/vim-plug')
   Plug        'tpope/vim-eunuch'
   " Plug        'tpope/vim-fugitive'
   " Plug        'tpope/vim-abolish'
-" === quick-scope === {{{
+  " === quick-scope === {{{
   Plug 'unblevable/quick-scope' 
   let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
   let g:qs_max_chars=120
-" }}}
-" === vim-auto-popmenu === {{{
+  " }}}
+  " === vim-auto-popmenu === {{{
   Plug        'bo1929/vim-auto-popmenu'
   let g:apc_enable_ft = {"*":1}
-" }}}
-" === ctrlp === {{{
+  " }}}
+  " === ctrlp === {{{
   Plug        'ctrlpvim/ctrlp.vim'
   " Use fd or rg for ctrlp.
   if executable('fd')
-      let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
-      let g:ctrlp_use_caching = 0
+    let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+    let g:ctrlp_use_caching = 0
   elseif executable('rg')
     set grepprg=rg\ --color=never
     let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   else
     let g:ctrlp_clear_cache_on_exit = 0
   endif
-" }}}
-" === lightline === {{{
+  " }}}
+  " === lightline === {{{
   Plug        'itchyny/lightline.vim'
   let g:lightline = {
-            \  'colorscheme': 'nord',
-        \ }
-" }}}
-" === nord === {{{
+	\  'colorscheme': 'nord',
+	\ }
+  " }}}
+  " === nord === {{{
   Plug 'arcticicestudio/nord-vim'
-" }}}
-" === everforest === {{{
+  " }}}
+  " === everforest === {{{
   " Plug        'sainnhe/everforest'
   " let g:everforest_transparent_background = 1
-  " let g:everforest_background = 'hard'
+  " let g:everforest_background = 'soft'
   " let g:everforest_enable_italic = 1
-" }}}
+  " }}}
   " === vimtex === {{{ 
   if executable('latexmk')
     Plug        'lervag/vimtex'
@@ -69,21 +69,22 @@ call plug#begin('~/.vim/vim-plug')
     let g:vimtex_quickfix_autoclose_after_keystrokes=3
   endif
   " }}}
-" === vimwiki === {{{
+  " === vimwiki === {{{
   Plug        'vimwiki/vimwiki'
   let wiki_markdown = {'path': $HOME . '/notes/markdown/',
-                  \ 'syntax': 'markdown', 'ext': '.md',
-                  \'path_html': $HOME . '/notes/markdown/html-output/'}
+	\ 'syntax': 'markdown', 'ext': '.md',
+	\'path_html': $HOME . '/notes/markdown/html-output/'}
   let wiki_vimwiki = {'path': '~/notes/vimwiki',
-              \'path_html': $HOME . '/notes/vimwiki/html-output/'}
+	\'path_html': $HOME . '/notes/vimwiki/html-output/'}
   let g:vimwiki_list = [wiki_vimwiki, wiki_markdown]
-" }}}
-" === jupytext === {{{
+  let g:vimwiki_folding = 'expr'
+  " }}}
+  " === jupytext === {{{
   if executable('jupytext')
     Plug        'goerz/jupytext.vim'
     let g:jupytext_fmt = 'py'
   endif
-" }}}
+  " }}}
   " === khuno === {{{
   if executable('flake8')
     Plug        'alfredodeza/khuno.vim'
