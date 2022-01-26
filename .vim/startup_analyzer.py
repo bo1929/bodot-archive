@@ -149,7 +149,7 @@ class StartupData(object):
                     else:
                         self.times[plugin] = float(time)
             # Catch exception if no plugin was found
-            except RuntimeError as e:
+            except RuntimeError:
                 if not check_system:
                     raise
                 else:

@@ -60,12 +60,11 @@ call plug#begin('~/.vim/vim-plug')
   " === vimtex === {{{ 
   if executable('latexmk')
     Plug        'lervag/vimtex'
-    " let g:tex_fast = ""
+    let g:tex_fast = ""
     let g:vimtex_fold_manual = 1
     if executable('zathura')
       let g:vimtex_view_method = 'zathura'
     endif
-    " let g:vimtex_matchparen_enabled = 0
     let g:vimtex_quickfix_autoclose_after_keystrokes=3
   endif
   " }}}
@@ -90,6 +89,7 @@ call plug#begin('~/.vim/vim-plug')
     Plug        'alfredodeza/khuno.vim'
     let g:khuno_flake_cmd = $HOME . '/.local/bin/flake8'
     let g:khuno_builtins="_,apply"
+    let g:khuno_max_line_length=99
   endif
   " }}}
   " === black === {{{
