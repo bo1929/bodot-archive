@@ -126,25 +126,26 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-if !has('gui_running')
+colorscheme everforest
+
+if has('gui_running')
+  set background=light
+else
+  set background=dark
   set t_Co=256
 endif
 
-colorscheme nord
-set background=dark
-
 " Set the vertical split character to a space.
-set fillchars+=vert:\
+set fillchars+=vert:\ 
 
 " Enable syntax highlighting.
-syntax on
+syntax enable
 syntax sync minlines=512
 syntax sync maxlines=1024
 
 set re=1
-" Don't redraw for macros auto-commands etc.
+" Don't redraw for macros, auto-commands etc.
 set lazyredraw
 
-hi Normal ctermbg=NONE guibg=NONE
-hi Folded ctermbg=NONE guibg=NONE
+call HiNoneBG()
 " }}}

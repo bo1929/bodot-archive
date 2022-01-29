@@ -26,7 +26,7 @@ call plug#begin('~/.vim/vim-plug')
   let g:qs_max_chars=120
   " }}}
   " === vim-auto-popmenu === {{{
-  Plug        'bo1929/vim-auto-popmenu'
+  Plug        'bo1929/vim-auto-popmenu', { 'branch': 'minimal' }
   let g:apc_enable_ft = {"*":1}
   " }}}
   " === ctrlp === {{{
@@ -45,17 +45,17 @@ call plug#begin('~/.vim/vim-plug')
   " === lightline === {{{
   Plug        'itchyny/lightline.vim'
   let g:lightline = {
-	\  'colorscheme': 'nord',
+	\  'colorscheme': 'everforest',
 	\ }
   " }}}
-  " === nord === {{{
-  Plug 'arcticicestudio/nord-vim'
-  " }}}
   " === everforest === {{{
-  " Plug        'sainnhe/everforest'
-  " let g:everforest_transparent_background = 1
-  " let g:everforest_background = 'soft'
-  " let g:everforest_enable_italic = 1
+  Plug        'sainnhe/everforest'
+  let g:everforest_transparent_background = 1
+  let g:everforest_background = 'soft'
+  let g:everforest_spell_foreground = 'colored'
+  let g:everforest_enable_italic = 1
+  let g:everforest_disable_italic_comment = 0
+  let g:everforest_ui_contrast = 'high'
   " }}}
   " === vimtex === {{{ 
   if executable('latexmk')

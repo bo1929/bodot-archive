@@ -4,7 +4,7 @@ let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
 " Visual select all text in buffer.
-map <C-v>a ggVG
+noremap <C-v>a ggVG
 
 " Better yank and paste, use + register.
 noremap <leader>y "+y
@@ -18,6 +18,9 @@ nnoremap Q @@
 
 " Keep pressing ~ until you get the case you want.
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
+
+" Toggle background, light or dark.
+noremap <silent> <F3> :call ToggleBG()<CR>
 
 " Disable arrow-keys.
 noremap <Up> <Nop>

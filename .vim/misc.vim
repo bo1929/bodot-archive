@@ -10,17 +10,52 @@ function! TwiddleCase(str)
   return result
 endfunction
 
+function! HiNoneBG()
+  hi Normal guibg=NONE ctermbg=NONE
+  hi Folded guibg=NONE ctermbg=NONE
+  " hi CursorColumn cterm=NONE ctermbg=NONE ctermfg=NONE
+  " hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+  " hi CursorLineNr cterm=NONE ctermbg=NONE ctermfg=NONE
+  " hi LineNr ctermbg=NONE
+  " hi NonText ctermbg=NONE
+  " hi SpecialKey ctermbg=NONE
+  " hi VertSplit ctermbg=NONE
+  " hi SignColumn ctermbg=NONE
+endfunction
+
+function! HiClear()
+  hi clear CursorLine
+  hi clear SignColumn
+  " hi clear LineNr
+endfunction
+
+function! ToggleBG()
+  let &background = ( &background == "dark"? "light" : "dark" )
+  if exists("g:colors_name")
+    exe "colorscheme " . g:colors_name
+  endif
+  call HiNoneBG()
+  call HiClear()
+endfunction
+
 " Append timestamps.
-command! AppendDate :normal a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+if !exists(":AppendDate")
+  command! AppendDate :normal a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+endif
 
 " {{{ === AutoCommands ===
-" Reset cursor on startup
 augroup ResetCursorShape
-  au!
+  " Reset cursor on startup
   autocmd VimEnter * :normal :startinsert :stopinsert 
 augroup END
 
-augroup FileTypeCommands
+augroup AdaptColorScheme
+  " Adapt color scheme.
+  autocmd ColorScheme * call HiNoneBG()
+  autocmd ColorScheme * call HiClear()
+augroup END
+
+augroup DisableAutoComment
   " Disale auto-comment insertion:
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END

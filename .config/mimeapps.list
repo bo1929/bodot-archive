@@ -36,6 +36,7 @@ application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 x-scheme-handler/mailto=brave-browser.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-9ESSG1.desktop
 
 [Added Associations]
 text/plain=xed.desktop;gvim.desktop;vim.desktop;
@@ -54,3 +55,4 @@ application/x-extension-xht=firefox.desktop;
 text/x-tex=xed.desktop;
 application/x-tex=xed.desktop;
 text/x-python=xed.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-9ESSG1.desktop;

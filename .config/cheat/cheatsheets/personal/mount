@@ -1,10 +1,11 @@
-Mount/Unmount:
-
 fdisk -l
+
 mount -t ntfs /dev/sda1  /mnt/
 
 udisksctl unmount -b /dev/sda1
+
 udisksctl power-off -b /dev/sda1
 
 sshfs remote:path/to/directory local/path -o cache=no
+
 fusermount -u /temp/user/harddrive

@@ -3,7 +3,7 @@ export PATH="${HOME}/.local/bin:${PATH}"
 # Enable colors and change prompt.
 autoload -U colors && colors
 PS1="%B%{$fg[yellow]%}[%{$fg[blue]%}%n%{$fg[red]%}@%{$fg[green]%}%~%{$fg[yellow]%}]%{$reset_color%}$%b"
-RPROMPT="%{$fg[red]%}[%D{%m/%f}|%T]%{$reset_color%}"
+RPROMPT="%{$fg[yellow]%}[%D{%m/%f}|%T]%{$reset_color%}"
 
 # The following lines were added by compinstall.
 zstyle ':completion:*' completer _complete _ignored _correct

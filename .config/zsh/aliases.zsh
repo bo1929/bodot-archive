@@ -29,14 +29,14 @@ if [ -f "$LFCD" ]; then
 fi
 # Signal with tray.
 alias signal-desktop="signal-desktop --use-tray-icon"
-# Feh image viewer, default options.
-alias feh="feh --scale-down --image-bg white"
 # Cat with wings.
 alias cat=bat
 # Zathura leaves terminal.
 alias zathura="zathura --fork"
-# Give exa a chance
+# Give exa a chance.
 alias ls='exa -snew'
+# Feh image viewer, default options.
+alias feh="feh --scale-down --image-bg white"
 
 # Directory shortcuts
 hash -d basty="${HOME}/work/basty"

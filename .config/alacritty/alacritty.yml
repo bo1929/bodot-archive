@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/colorschemes/nord.yml
+  - ~/.config/alacritty/colorschemes.yml
   - ~/.config/alacritty/key_bindings.yml
 env:
   TERM: alacritty
