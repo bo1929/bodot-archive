@@ -4,7 +4,7 @@ import:
 env:
   TERM: alacritty
 window:
-  opacity: 0.95
+  opacity: 0.9
   dimensions:
     columns: 0
     lines: 0

@@ -73,8 +73,8 @@ call plug#begin('~/.vim/vim-plug')
   let wiki_markdown = {'path': $HOME . '/notes/markdown/',
 	\ 'syntax': 'markdown', 'ext': '.md',
 	\'path_html': $HOME . '/notes/markdown/html-output/'}
-  let wiki_vimwiki = {'path': '~/notes/vimwiki',
-	\'path_html': $HOME . '/notes/vimwiki/html-output/'}
+  let wiki_vimwiki = {'path': $HOME . '/notes/wiki',
+	\'path_html': $HOME . '/notes/wiki/html-output/'}
   let g:vimwiki_list = [wiki_vimwiki, wiki_markdown]
   let g:vimwiki_folding = 'expr'
   " }}}

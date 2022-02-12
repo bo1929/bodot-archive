@@ -56,3 +56,4 @@ text/x-tex=xed.desktop;
 application/x-tex=xed.desktop;
 text/x-python=xed.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-9ESSG1.desktop;
+application/pdf=firefox.desktop;

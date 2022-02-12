@@ -7,13 +7,11 @@ yad --title="EndeavourOS bspwm keybindings:"\
 	--column=description:\
 	--column=command:\
 	"ESC" "close this app" ""\
-	"=" "modkey" "(set mod Mod4)"\
-	"+enter" "open a terminal"	""\
-	"+w" "open Browser" ""\
-	"+n" "open Filebrowser" ""\
+	"ctrl+alt+t" "open a terminal"	""\
+	"ctrl+alt+w" "open Browser" ""\
 	"+d" "app menu" "(rofi)"\
-	"+Shift+q" "close focused app"\
-	"(kill)" "Print-key" "screenshot" "(scrot)"\
+	"+q" "close focused app"\
+	"(kill)" "Print" "screenshot" "(scrot)"\
 	"+Shift+e" "logout menu" "(rofi)"\
 	"+F1" "open keybinding helper" "full list"\
 	"+Alt+r" "reload bspwm" "bpsc restart"\
