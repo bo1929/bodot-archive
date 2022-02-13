@@ -1,11 +1,11 @@
 " Twiddle the case of text under the cursor.
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)
-    let result = tolower(a:str)
+    let result=tolower(a:str)
   elseif a:str ==# tolower(a:str)
-    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+    let result=substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
   else
-    let result = toupper(a:str)
+    let result=toupper(a:str)
   endif
   return result
 endfunction
@@ -30,7 +30,7 @@ function! HiClear()
 endfunction
 
 function! ToggleBG()
-  let &background = ( &background == "dark"? "light" : "dark" )
+  let &background=( &background == "dark"? "light" : "dark" )
   if exists("g:colors_name")
     exe "colorscheme " . g:colors_name
   endif

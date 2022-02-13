@@ -58,14 +58,14 @@ function MakeDirectory(path_directory)
   endif
 endfunction
 " Set swap directory.
-let swap_directory = $HOME . '/.cache/vim/swap'
+let swap_directory=$HOME . '/.cache/vim/swap'
 call MakeDirectory(swap_directory)
 if isdirectory(swap_directory)
   let &dir=swap_directory
 endif
 " Set backup location and backup.
 set backup
-let backup_directory = $HOME . '/.cache/vim/backup'
+let backup_directory=$HOME . '/.cache/vim/backup'
 call MakeDirectory(backup_directory)
 if isdirectory(backup_directory)
   let &backupdir=backup_directory
@@ -73,10 +73,16 @@ endif
 " Set undodir and undofile.
 set undofile
 set undoreload=50000
-let undo_directory = $HOME . '/.cache/vim/undo'
+let undo_directory=$HOME . '/.cache/vim/undo'
 call MakeDirectory(undo_directory)
 if isdirectory(undo_directory)
   let &undodir=undo_directory
+endif
+" Set netrw home directory.
+let netrw_directory=$HOME . '/.cache/vim'
+call MakeDirectory(netrw_directory)
+if isdirectory(netrw_directory)
+  let g:netrw_home=netrw_directory
 endif
 " }}}
 
