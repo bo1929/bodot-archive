@@ -1,15 +1,15 @@
 " Python editor settings.
-setlocal tabstop=4 shiftwidth=4 softtabstop=4
+set tabstop=4 shiftwidth=4 softtabstop=4
 set omnifunc=python3complete#Complete
 
-if executable('black')
+if exists(':Black') && executable('black')
   augroup FormatPython
     autocmd BufWritePre *.py silent! execute ':Black'
-    autocmd FileType python nnoremap <silent> <buffer> <F9> :Black<CR>
+    autocmd FileType python nnoremap <silent> <buffer> <F8> :Black<CR>
   augroup END
 endif
 
-if executable('flake8')
+if exists(':Khuno') && executable('flake8')
   augroup LintPython
     autocmd FileType python nmap <silent> <buffer> <F7> <Esc>:Khuno show<CR>
   augroup END

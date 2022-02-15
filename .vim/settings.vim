@@ -132,7 +132,11 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme everforest
+try
+  colorscheme everforest
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme darkblue
+endtry
 
 if has('gui_running')
   set background=light

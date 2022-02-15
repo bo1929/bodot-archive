@@ -1,7 +1,6 @@
 " Tex editor settings.
-setlocal nowrap
-setlocal tabstop=2 shiftwidth=2 softtabstop=2
-
+set nowrap
+set tabstop=2 shiftwidth=2 softtabstop=2
 
 " Insert a new bullet or number in the next line.
 inoremap <silent><buffer> <CR> <C-]><Esc>:VimwikiReturn 3 5<CR>
