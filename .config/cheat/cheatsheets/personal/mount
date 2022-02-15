@@ -2,6 +2,10 @@ fdisk -l
 
 mount -t ntfs /dev/sda1  /mnt/
 
+udisksctl unlock -b /dev/sda1
+
+udisksctl mount -b /dev/sda1
+
 udisksctl unmount -b /dev/sda1
 
 udisksctl power-off -b /dev/sda1
