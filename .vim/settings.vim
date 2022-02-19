@@ -23,19 +23,19 @@ set timeout
 set number
 " Show relative line numbers.
 set relativenumber
-" Separate sentences by a period and one space when using gq.
-set nojoinspaces
 " Immediately perceive Escape in insert mode.
 set noesckeys
 " Indicates a fast terminal connection, smoother.
 set ttyfast
 " Display incomplete commands.
 set showcmd
-" }}}
-
-" === Folding === {{{
-" Use markers to define folds.
-set foldmethod=marker
+" Make :grep use rg, if available.
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+" Do not wrap lines, and related settings.
+call NoWrap()
 " }}}
 
 " === Cursor === {{{
@@ -49,6 +49,11 @@ set guicursor+=a:blinkon0
 set nocursorline
 " Do not show cursor-column.
 set nocursorcolumn
+" }}}
+
+" === Folding === {{{
+" Use markers to define folds.
+set foldmethod=marker
 " }}}
 
 " === Directories === {{{
@@ -89,6 +94,8 @@ endif
 " === Default Indentation === {{{
 " New lines inherit indentation.
 set autoindent
+" Do smart autoindenting when starting a new line.
+" set smartindent
 " Convert tabs to spaces.
 set expandtab
 " Round the indent to a multiple of shiftwidth.
@@ -153,7 +160,6 @@ syntax enable
 syntax sync minlines=512
 syntax sync maxlines=1024
 
-set re=1
 " Don't redraw for macros, auto-commands etc.
 set lazyredraw
 

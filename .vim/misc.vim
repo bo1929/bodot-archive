@@ -25,17 +25,45 @@ endfunction
 
 function! HiClear()
   hi clear CursorLine
-  hi clear SignColumn
+  " hi clear SignColumn
   " hi clear LineNr
 endfunction
 
 function! ToggleBG()
-  let &background=( &background == "dark"? "light" : "dark" )
+  let &background = ( &background == "dark"? "light" : "dark" )
   if exists("g:colors_name")
     exe "colorscheme " . g:colors_name
   endif
-  call HiNoneBG()
   call HiClear()
+  call HiNoneBG()
+endfunction
+
+function! MyFoldText()
+    let nblines = v:foldend - v:foldstart + 1
+    let w = winwidth(0) - &foldcolumn - (&number ? 3 : 0)
+    let expansionString = repeat(".", w - strwidth(nblines.'"') - 1)
+    let txt = nblines . " " . expansionString
+    return txt
+endfunction
+
+function LocalWrap(...)
+  setlocal wrap
+  setlocal nolist
+  " Set tw=0 to soft wrap.
+  let &l:textwidth=get(a:, 1, 0)
+  setlocal linebreak
+  setlocal breakindent
+  setlocal showbreak=+++
+  let &l:breakat=get(a:, 2,' ^I!@*-+;:,./?')
+endfunction
+
+function NoWrap()
+  set nowrap
+  set nojoinspaces
+  set textwidth=0 
+  set wrapmargin=0
+  set sidescroll=1
+  set listchars+=precedes:<,extends:>
 endfunction
 
 " Append timestamps.
@@ -43,7 +71,6 @@ if !exists(":AppendDate")
   command! AppendDate :normal a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 endif
 
-" {{{ === AutoCommands ===
 augroup ResetCursorShape
   " Reset cursor on startup
   autocmd VimEnter * :normal :startinsert :stopinsert 
@@ -56,7 +83,7 @@ augroup AdaptColorScheme
 augroup END
 
 augroup DisableAutoComment
-  " Disale auto-comment insertion:
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  " Format options.
+  autocmd FileType * setlocal fo+=q fo+=n fo+=j fo+=p fo+=1
+  autocmd FileType * setlocal fo-=c fo-=o fo-=r
 augroup END
-" }}}
