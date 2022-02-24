@@ -11,13 +11,10 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.vim/vim-plug')
   " === vim-tpope === {{{
-    " Plug        'tpope/vim-fugitive'
-    " Plug        'tpope/vim-abolish'
+    Plug        'tpope/vim-abolish'
     Plug        'tpope/vim-obsession'
     Plug        'tpope/vim-unimpaired'
     Plug        'tpope/vim-commentary'
-    Plug        'tpope/vim-sleuth'
-    Plug        'tpope/vim-vinegar'
     Plug        'tpope/vim-repeat'
     Plug        'tpope/vim-eunuch'
   " }}}
@@ -25,11 +22,16 @@ call plug#begin('~/.vim/vim-plug')
   Plug        'ludovicchabant/vim-gutentags'
   " }}}
   " === vim-auto-popmenu === {{{
-  Plug        'bo1929/vim-auto-popmenu', { 'branch': 'minimal' }
+  Plug        'skywind3000/vim-auto-popmenu'
   let g:apc_enable_ft={"*":1}
+	let g:apc_enable_tab=0
+  let g:apc_cr_confirm=1
   " }}}
   " === vim-sandwich === {{{
   Plug        'machakann/vim-sandwich'
+  " }}}
+  " === vim-asyncrun === {{{
+  Plug	      'skywind3000/asyncrun.vim'
   " }}}
   " === ctrlp === {{{
   Plug        'ctrlpvim/ctrlp.vim'
@@ -89,6 +91,26 @@ call plug#begin('~/.vim/vim-plug')
   let g:everforest_background='soft'
   let g:everforest_enable_italic=1
   " }}}
+  " === markdown === {{{
+  Plug	      'bo1929/vim-markdown'
+  Plug	      'mzlogin/vim-markdown-toc'
+  " }}}
+  " === vimtex === {{{ 
+  if executable('latexmk')
+    Plug        'lervag/vimtex'
+    let g:tex_fast=""
+    let g:vimtex_fold_manual=1
+    let g:vimtex_matchparen_enabled=0
+    let g:vimtex_include_search_enabled=0
+    let g:vimtex_quickfix_autoclose_after_keystrokes=3
+    if executable('zathura')
+      let g:vimtex_view_method='zathura'
+    endif
+  endif
+  " }}}
+  " === goyo === {{{
+  Plug        'junegunn/goyo.vim'
+  " }}}
   " === lightline === {{{
   Plug        'itchyny/lightline.vim'
   let g:lightline = {
@@ -98,7 +120,7 @@ call plug#begin('~/.vim/vim-plug')
     \             [ 'readonly', 'filename', 'modified' ] ],
     \   'right': [ [ 'lineinfo' ],
     \            [ 'fileformat', 'fileencoding', 'filetype' ],
-    \            [ 'obsession-status', 'percent' ] ]
+    \            [ 'format-options', 'obsession-status', 'percent' ] ]
     \ },
     \ 'tabline': {
     \   'left': [ [ 'tabs' ] ],
@@ -108,34 +130,12 @@ call plug#begin('~/.vim/vim-plug')
     \   'active': [ 'tabnum', 'readonly', 'filename', 'modified' ],
     \   'inactive': [ 'tabnum', 'readonly', 'filename', 'modified' ]
     \ },
+    \ 'component': {
+    \   'format-options': '[%{&fo}]',
+    \ },
     \ 'component_function': {
     \   'obsession-status': 'ObsessionStatus',
     \ },
     \ }
-  " }}}
-  " === vim-markdown === {{{
-  " Plug        'preservim/vim-markdown'
-  " }}}
-  " === vimwiki === {{{
-  " Plug        'vimwiki/vimwiki'
-  " let wiki_markdown={'path': $HOME . '/notes/markdown/',
-	" \ 'syntax': 'markdown', 'ext': '.md',
-	" \'path_html': $HOME . '/notes/markdown/html-output/'}
-  " let wiki_vimwiki={'path': $HOME . '/notes/wiki',
-	" \'path_html': $HOME . '/notes/wiki/html-output/'}
-  " let g:vimwiki_list=[wiki_vimwiki, wiki_markdown]
-  " let g:vimwiki_folding='expr'
-  " }}}
-  " === vimtex === {{{ 
-  if executable('latexmk')
-    Plug        'lervag/vimtex'
-    let g:tex_fast=""
-    let g:vimtex_fold_manual=1
-    let g:vimtex_matchparen_enabled=0
-    let g:vimtex_quickfix_autoclose_after_keystrokes=3
-    if executable('zathura')
-      let g:vimtex_view_method='zathura'
-    endif
-  endif
   " }}}
 call plug#end()

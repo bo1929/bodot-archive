@@ -29,31 +29,6 @@ set noesckeys
 set ttyfast
 " Display incomplete commands.
 set showcmd
-" Make :grep use rg, if available.
-if executable("rg")
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
-" Do not wrap lines, and related settings.
-call NoWrap()
-" }}}
-
-" === Cursor === {{{
-" Change cursor while chaning mode.
-let &t_SI="\e[6 q"
-" Change cursor while chaning mode.
-let &t_EI="\e[2 q"
-" Stop cursor blanking.
-set guicursor+=a:blinkon0
-" Do not show cursor-line.
-set nocursorline
-" Do not show cursor-column.
-set nocursorcolumn
-" }}}
-
-" === Folding === {{{
-" Use markers to define folds.
-set foldmethod=marker
 " }}}
 
 " === Directories === {{{
@@ -83,19 +58,27 @@ call MakeDirectory(undo_directory)
 if isdirectory(undo_directory)
   let &undodir=undo_directory
 endif
+" }}}
+
+" === Netrw === {{{
 " Set netrw home directory.
 let netrw_directory=$HOME . '/.cache/vim'
 call MakeDirectory(netrw_directory)
 if isdirectory(netrw_directory)
   let g:netrw_home=netrw_directory
 endif
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_altv = 1
+let g:netrw_preview=1
+let g:netrw_browse_split=4
+let g:netrw_winsize=50
+let g:netrw_localrmdir='rm -r'
 " }}}
 
 " === Default Indentation === {{{
 " New lines inherit indentation.
 set autoindent
-" Do smart autoindenting when starting a new line.
-" set smartindent
 " Convert tabs to spaces.
 set expandtab
 " Round the indent to a multiple of shiftwidth.
@@ -108,13 +91,6 @@ set shiftwidth=2
 set softtabstop=2
 " }}}
 
-" === Screen Splitting === {{{
-" Put new window to the below of current one.
-set splitbelow
-" Put new window to the right of current one.
-set splitright
-" }}}
-
 " === Search Settings === {{{
 " Highlight all its matches.
 set hlsearch
@@ -122,13 +98,55 @@ set hlsearch
 set incsearch
 " Case-insensitive search.
 set wildignorecase
+" Make :grep use rg, if available.
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 " }}}
 
-" === Autocomplete === {{{
+" === Cursor === {{{
+" Change cursor while chaning mode.
+let &t_SI="\e[6 q"
+" Change cursor while chaning mode.
+let &t_EI="\e[2 q"
+" Stop cursor blanking.
+set guicursor+=a:blinkon0
+" Do not show cursor-line.
+set nocursorline
+" Do not show cursor-column.
+set nocursorcolumn
+" }}}
+
+" === Wrapping === {{{
+" Do not use wrapping and related settings.
+set nowrap
+set nojoinspaces
+set textwidth=0 
+set wrapmargin=0
+set sidescroll=1
+set listchars+=precedes:<,extends:>
+" }}}
+
+" === Insertion Completion === {{{
+set complete=.,w,b,u,t,i
+" set complete=.,k,b
 set completeopt=menuone,noinsert,noselect,preview
 set omnifunc=syntaxcomplete#Complete
 " Don't give ins-completion-menu messages.
 set shortmess+=c
+" }}}
+
+" === Screen Splitting === {{{
+" Put new window to the below of current one.
+set splitbelow
+" Put new window to the right of current one.
+set splitright
+" }}}
+
+" === Folding === {{{
+" Use markers to define folds.
+set foldmethod=marker
 " }}}
 
 " === Visual Related === {{{
@@ -162,6 +180,4 @@ syntax sync maxlines=1024
 
 " Don't redraw for macros, auto-commands etc.
 set lazyredraw
-
-call HiNoneBG()
 " }}}

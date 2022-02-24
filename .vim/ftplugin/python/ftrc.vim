@@ -1,6 +1,5 @@
 " Python editor settings.
 setlocal tabstop=4 shiftwidth=4 softtabstop=4
-setlocal omnifunc=python3complete#Complete
 
 if exists(':Black') && executable('black')
   augroup FormatPython
