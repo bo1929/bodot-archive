@@ -9,7 +9,5 @@ setlocal conceallevel=2
 
 setlocal foldtext=DotFoldText()
 
-setlocal com+=b:>
-
 " Local settings to wrap lines.
-silent call LocalWrap()
+silent call LocalWrap(0, repeat(">", &shiftwidth))

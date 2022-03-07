@@ -8,4 +8,4 @@ setlocal suffixesadd=.tex
 setlocal conceallevel=2
 
 " Local settings to wrap lines.
-silent call LocalWrap()
+silent call LocalWrap(0, repeat(">", &shiftwidth))
