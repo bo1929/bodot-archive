@@ -1,6 +1,8 @@
 " Python editor settings.
 setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
+setlocal complete+=i,t
+
 if exists(':Black') && executable('black')
   augroup FormatPython
     autocmd BufWritePre *.py silent! execute ':Black'

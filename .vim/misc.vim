@@ -127,6 +127,11 @@ if exists(":AsyncRun")
   endif
 endif
 
+if exists("##GoyoEnter") && exists("##GoyoLeave") && exists(":Limelight")
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
+endif
+
 augroup ResetCursorShape
   " Reset cursor on startup
   autocmd VimEnter * :normal :startinsert :stopinsert 

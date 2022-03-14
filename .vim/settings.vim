@@ -15,6 +15,7 @@ set laststatus=2
 set ruler
 " Display command line’s tab complete options as a menu.
 set wildmenu
+set wildoptions=pum
 " Make backspace behave like usual.
 set backspace=indent,eol,start
 " Timeout for key sequences, mappings.
@@ -29,12 +30,14 @@ set noesckeys
 set ttyfast
 " Display incomplete commands.
 set showcmd
+" Use the new regular expression engine.
+set re=0
 " }}}
 
 " === Directories === {{{
 function MakeDirectory(path_directory)
   if !isdirectory(a:path_directory)
-    slient call mkdir(a:path_directory, "p")
+    call mkdir(a:path_directory, "p")
   endif
 endfunction
 " Set swap directory.
@@ -62,7 +65,7 @@ endif
 
 " === Netrw === {{{
 " Set netrw home directory.
-let netrw_directory=$HOME . '/.cache/vim'
+let netrw_directory=$HOME . '/.cache/vim/netrw'
 call MakeDirectory(netrw_directory)
 if isdirectory(netrw_directory)
   let g:netrw_home=netrw_directory
@@ -129,8 +132,7 @@ set listchars+=precedes:<,extends:>
 " }}}
 
 " === Insertion Completion === {{{
-set complete=.,w,b,u,t,i
-" set complete=.,k,b
+set complete=.,w,b,u
 set completeopt=menuone,noinsert,noselect,preview
 set omnifunc=syntaxcomplete#Complete
 " Don't give ins-completion-menu messages.
@@ -173,11 +175,11 @@ endif
 " Set the vertical split character to a space.
 set fillchars+=vert:\ 
 
+" Don't redraw for macros, auto-commands etc.
+set lazyredraw
+
 " Enable syntax highlighting.
 syntax enable
 syntax sync minlines=512
 syntax sync maxlines=1024
-
-" Don't redraw for macros, auto-commands etc.
-set lazyredraw
 " }}}
