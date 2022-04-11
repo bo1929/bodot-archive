@@ -2,12 +2,8 @@
 function! ToggleVExplorer()
   if exists("t:expl_buf_num")
     let expl_win_num = bufwinnr(t:expl_buf_num)
-    let cur_win_num = winnr()
     if expl_win_num != -1
-      while expl_win_num != cur_win_num
-        exec "wincmd w"
-        let cur_win_num = winnr()
-      endwhile
+        exec  expl_win_num .. "wincmd w"
       try
         close
       catch /^Vim\%((\a\+)\)\=:E444/
@@ -45,8 +41,8 @@ endfunction
 
 " Alignment for tables using Tabularize.
 function! AlignTable()
+  let p = '^\s*|\s.*\s|\s*$'
   if exists(":Tabularize") && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let p = '^\s*|\s.*\s|\s*$'
     let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
     let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
     Tabularize/|/l1
@@ -89,6 +85,16 @@ function! DotFoldText()
   let expansionString = repeat(".", w - strwidth(nblines.'"') - 1)
   let txt = nblines . " " . expansionString
   return txt
+endfunction
+
+function! OneSentencePerLine()
+  if mode() =~# '^[iR]'
+    return
+  endif
+  let start = v:lnum
+  let end = start + v:count - 1
+  execute start.','.end.'join'
+  s/[.!?]\zs\s*\ze\S/\r/g
 endfunction
 
 function! LocalWrap(tw=0, sbr='>', brk=' ^I!@*-+;:,./?')

@@ -4,7 +4,7 @@ let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
 " Visual select all text in buffer.
-noremap <C-v>a ggVG
+noremap <leader>va ggVG
 
 " Better yank, use + register.
 noremap <leader>y "+y
@@ -34,9 +34,6 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Toggle background, light or dark.
 noremap <silent> <F3> :call ToggleBG()<CR>
-
-" Align tables.
-inoremap <silent> <Bar> <Bar><Esc>:call AlignTable()<CR>a
 
 " Toggle vertical explorer.
 noremap <silent> <leader>- :call ToggleVExplorer()<CR>
