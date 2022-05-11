@@ -48,6 +48,10 @@ noremap <Right> <Nop>
 " As a result remove highlighting.
 nnoremap <silent> \ :let @/=""<CR>
 
+" Do a search for the text in the " register.
+nnoremap <leader>"/ /<C-R>"<CR>
+nnoremap <leader>"s ::%s/<C-R>"/<text>/g
+
 function! MapPluginKeyBindings()
   if exists(":TagbarToggle")
     nnoremap <silent> <F5> :TagbarToggle<CR>

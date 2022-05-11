@@ -56,7 +56,8 @@ call plug#begin('~/.vim/vim-plug')
   if executable('latexmk')
     Plug        'lervag/vimtex'
     let g:tex_fast=""
-    let g:vimtex_fold_manual=1
+    let g:vimtex_fold_manual=0
+    let g:vimtex_fold_enabled=0
     let g:vimtex_matchparen_enabled=0
     let g:vimtex_include_search_enabled=0
     let g:vimtex_quickfix_autoclose_after_keystrokes=3

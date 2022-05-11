@@ -941,6 +941,7 @@ function! s:prepare(...)
     call s:new_window()
   endif
 
+  nnoremap <silent> <buffer> q :call <SID>close_pane()<cr>
   if a:0 == 0
     call s:finish_bindings()
   endif
@@ -2651,6 +2652,7 @@ function! s:preview_commit()
     endif
   endtry
   setlocal nomodifiable
+  nnoremap <silent> <buffer> q :q<cr>
   wincmd p
 endfunction
 

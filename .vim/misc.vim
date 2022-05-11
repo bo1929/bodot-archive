@@ -87,6 +87,12 @@ function! DotFoldText()
   return txt
 endfunction
 
+fun! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+
 function! OneSentencePerLine()
   if mode() =~# '^[iR]'
     return
@@ -94,7 +100,8 @@ function! OneSentencePerLine()
   let start = v:lnum
   let end = start + v:count - 1
   execute start.','.end.'join'
-  s/[.!?]\zs\s*\ze\S/\r/g
+  s/[.!?] \zs\s*\ze\S/\r/g
+  call TrimWhitespace()
 endfunction
 
 function! LocalWrap(tw=0, sbr='>', brk=' ^I!@*-+;:,./?')
