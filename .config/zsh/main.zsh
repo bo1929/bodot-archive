@@ -1,5 +1,3 @@
-export PATH="${HOME}/.local/bin:${PATH}"
-
 # Enable colors and change prompt.
 autoload -U colors && colors
 PS1="%B%{$fg[yellow]%}[%{$fg[blue]%}%n%{$fg[red]%}@%{$fg[green]%}%~%{$fg[yellow]%}]%{$reset_color%}$%b"

@@ -40,5 +40,5 @@ fi
 
 # Done!
 
-# Created by `pipx` on 2021-12-21 17:31:57
-export PATH="$PATH:/home/bo/.local/bin"
+# Created for `pyenv` on 2022-02-25 Sat 04:29 pm
+eval "$(pyenv init -)"
