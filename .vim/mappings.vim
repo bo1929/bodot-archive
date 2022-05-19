@@ -50,7 +50,7 @@ nnoremap <silent> \ :let @/=""<CR>
 
 " Do a search for the text in the " register.
 nnoremap <leader>"/ /<C-R>"<CR>
-nnoremap <leader>"s ::%s/<C-R>"/<text>/g
+nnoremap <leader>"s :%s/<C-R>"/<text>/g
 
 function! MapPluginKeyBindings()
   if exists(":TagbarToggle")
