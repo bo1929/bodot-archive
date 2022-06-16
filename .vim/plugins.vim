@@ -55,12 +55,15 @@ call plug#begin('~/.vim/vim-plug')
   " === la/tex === {{{ 
   if executable('latexmk')
     Plug        'lervag/vimtex'
+    let g:vimtex_compiler_latexmk_engines = {
+        \ '_': '-xelatex',
+      \}
     let g:tex_fast=""
     let g:vimtex_fold_manual=0
     let g:vimtex_fold_enabled=0
     let g:vimtex_matchparen_enabled=0
     let g:vimtex_include_search_enabled=0
-    let g:vimtex_quickfix_autoclose_after_keystrokes=3
+    let g:vimtex_quickfix_autoclose_after_keystrokes=1
     if executable('zathura')
       let g:vimtex_view_method='zathura'
     endif

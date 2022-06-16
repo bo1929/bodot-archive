@@ -15,8 +15,11 @@ set redraw
 
 function! LatexIndent()
   if executable('latexindent')
-    silent! execute ':! latexindent -l % -o %'
-    silent! execute ':redraw!'
+    if !exists(":AsyncRun")
+      silent! execute ':! latexindent -l % -o %'
+      silent! execute ':redraw!'
+    else
+      silent! execute ':AsyncRun latexindent -l % -o %'
   endif
 endfunction
 
