@@ -5,8 +5,8 @@ import os
 import re
 
 
-COLOR_SCHEME_FILENAME = "colorschemes.yml"
-CONFIG_FILENAME = "colorschemes.yml"
+COLOR_SCHEME_FILENAME = "colorschemes.yaml"
+CONFIG_FILENAME = "colorschemes.yaml"
 CONFIG_FILE_DIR = os.path.expanduser("~/.config/alacritty/")
 COLOR_SCHEME_FILEPATH = os.path.join(CONFIG_FILE_DIR, COLOR_SCHEME_FILENAME)
 CONFIG_FILEPATH = os.path.join(CONFIG_FILE_DIR, CONFIG_FILENAME)

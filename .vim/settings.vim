@@ -160,7 +160,7 @@ if exists('+termguicolors')
 endif
 
 try
-  colorscheme everforest
+  colorscheme gruvbox
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme darkblue
 endtry

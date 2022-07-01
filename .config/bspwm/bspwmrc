@@ -48,7 +48,6 @@ if [ ! -f $startup_lock_file ]; then
   xsetroot -cursor_name left_ptr &
   # Cursor-speed
   xset s off 
-  xset s off -dpms 
   xset r rate 220 45
   # Key-mappings
   setxkbmap -option caps:escape
@@ -58,4 +57,6 @@ if [ ! -f $startup_lock_file ]; then
   ~/.screenlayout/monitor.sh &
   # Low battery notifier
   ~/.config/bspwm/scripts/low_battery_notifier.sh &
+  # Do not suspend.
+  xset s off -dpms
 fi

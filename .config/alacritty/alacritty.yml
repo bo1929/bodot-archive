@@ -1,8 +1,9 @@
 import:
-  - ~/.config/alacritty/colorschemes.yml
-  - ~/.config/alacritty/key_bindings.yml
+  - ~/.config/alacritty/colorschemes.yaml
+  - ~/.config/alacritty/key_bindings.yaml
 env:
   TERM: alacritty
+
 window:
   opacity: 0.9
   dimensions:
@@ -24,19 +25,16 @@ font:
   normal:
     family: Iosevka Term
     style: Regular
-    # bold:
-    #   family: Iosevka Term
-    #   style: Bold
-
-    # italic:
-    #   family: Iosevka Term
-    #   style: Italic
-
-    # bold_italic:
-    #   family: iosevka
-    #   style: Bold Italic
-
-  size: 11.0
+    bold:
+      family: Iosevka Term
+      style: Bold
+    italic:
+      family: Iosevka Term
+      style: Italic
+    bold_italic:
+      family: iosevka
+      style: Bold Italic
+  size: 9.0
 
   offset:
     x: 0

@@ -1,1 +1,2 @@
-systemctl start bluetoot
+# To start bluetooth service:
+systemctl start bluetooth

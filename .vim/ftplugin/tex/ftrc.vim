@@ -11,15 +11,16 @@ setlocal complete+=k
 set formatexpr=OneSentencePerLine()
 
 setlocal autoread
-set redraw
+set autoread
 
 function! LatexIndent()
   if executable('latexindent')
-    if !exists(":AsyncRun")
+    " if exists(":AsyncRun")
+    "   silent! execute ':AsyncRun! latexindent -l % -o %'
+    " else
       silent! execute ':! latexindent -l % -o %'
-      silent! execute ':redraw!'
-    else
-      silent! execute ':AsyncRun latexindent -l % -o %'
+    " endif
+    silent! execute ':redraw!'
   endif
 endfunction
 

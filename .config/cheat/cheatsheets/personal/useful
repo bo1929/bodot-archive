@@ -1,0 +1,2 @@
+# Print $PATH in a human-readable way.
+tr ':' '\n' <<< "$PATH"

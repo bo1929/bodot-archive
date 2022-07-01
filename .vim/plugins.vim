@@ -9,12 +9,11 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall
 \| endif
 
-" 25 plugins in total, ideally should not exceed 30.
 call plug#begin('~/.vim/vim-plug')
   " === lightline === {{{
   Plug        'itchyny/lightline.vim'
   let g:lightline = {
-    \ 'colorscheme': 'everforest',
+    \ 'colorscheme': 'gruvbox',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified' ] ],
@@ -77,6 +76,21 @@ call plug#begin('~/.vim/vim-plug')
   let g:everforest_ui_contrast='high'
   let g:everforest_background='soft'
   let g:everforest_enable_italic=1
+  " }}}
+  " === gruvbox === {{{
+  Plug 'morhetz/gruvbox'
+  let g:gruvbox_bold=1
+  let g:gruvbox_italic=1
+  let g:gruvbox_transparent_bg=1
+  let g:gruvbox_underline=1
+  let g:gruvbox_undercurl=1
+  let g:gruvbox_italicize_strings=1
+  let g:gruvbox_italicize_comments=1
+  let g:gruvbox_invert_selection=1
+  let g:gruvbox_improved_strings=0
+  let g:gruvbox_improved_warnings=0
+  let g:gruvbox_contrast_dark="soft"
+  let g:gruvbox_contrast_light="soft"
   " }}}
   " === khuno === {{{
   if executable('flake8')
