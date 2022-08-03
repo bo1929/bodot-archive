@@ -88,9 +88,8 @@ call plug#begin('~/.vim/vim-plug')
   let g:gruvbox_italicize_comments=1
   let g:gruvbox_invert_selection=1
   let g:gruvbox_improved_strings=0
-  let g:gruvbox_improved_warnings=0
-  let g:gruvbox_contrast_dark="soft"
-  let g:gruvbox_contrast_light="soft"
+  let g:gruvbox_improved_warnings=1
+  let g:gruvbox_guisp_fallback = "fg"
   " }}}
   " === khuno === {{{
   if executable('flake8')
