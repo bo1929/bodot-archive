@@ -19,7 +19,8 @@ set wildoptions=pum
 " Make backspace behave like usual.
 set backspace=indent,eol,start
 " Timeout for key sequences, mappings.
-set timeout
+set timeout ttimeout
+set timeoutlen=1000 ttimeoutlen=100
 " Show current line number.
 set number
 " Show relative line numbers.
@@ -32,6 +33,8 @@ set ttyfast
 set showcmd
 " Use the new regular expression engine.
 set re=0
+" A swap file will be written after this many milliseconds.
+set updatetime=500
 " }}}
 
 " === Directories === {{{
@@ -137,6 +140,7 @@ set completeopt=menuone,noinsert,noselect,preview
 set omnifunc=syntaxcomplete#Complete
 " Don't give ins-completion-menu messages.
 set shortmess+=c
+set pumheight=10
 " }}}
 
 " === Screen Splitting === {{{
@@ -160,7 +164,7 @@ if exists('+termguicolors')
 endif
 
 try
-  colorscheme gruvbox
+  colorscheme everforest
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme darkblue
 endtry

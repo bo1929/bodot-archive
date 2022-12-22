@@ -1,6 +1,7 @@
-" == Settings == {{{
 setlocal spell
 setlocal spelllang=en_us,tr
+
+setlocal autoread
 
 setlocal suffixesadd=.tex
 
@@ -10,24 +11,17 @@ setlocal complete+=k
 
 set formatexpr=OneSentencePerLine()
 
-setlocal autoread
-set autoread
-
-function! LatexIndent()
+function! IndentLatex()
   if executable('latexindent')
-    " if exists(":AsyncRun")
-    "   silent! execute ':AsyncRun! latexindent -l % -o %'
-    " else
-      silent! execute ':! latexindent -l % -o %'
-    " endif
-    silent! execute ':redraw!'
+    let last_curpos = getcurpos()
+    silent! execute ':%! latexindent -l'
+    call setpos('.', last_curpos)
   endif
 endfunction
 
-augroup LatexIndentation
-  autocmd! BufWritePost *.tex execute ':call LatexIndent()'
+augroup FormatLatex
+  autocmd! BufWritePost *.tex execute ':call IndentLatex()'
 augroup END
 
 " Local settings to wrap lines.
 silent call LocalWrap(0, repeat(">", &shiftwidth))
-" }}}

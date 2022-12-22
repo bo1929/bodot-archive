@@ -57,10 +57,10 @@ function! HiNoneBG()
   " hi CursorColumn cterm=NONE ctermbg=NONE ctermfg=NONE
   " hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
   " hi CursorLineNr cterm=NONE ctermbg=NONE ctermfg=NONE
-  " hi LineNr ctermbg=NONE
-  " hi NonText ctermbg=NONE
   " hi SpecialKey ctermbg=NONE
+  " hi NonText ctermbg=NONE
   " hi VertSplit ctermbg=NONE
+  " hi LineNr ctermbg=NONE
   " hi SignColumn ctermbg=NONE
 endfunction
 
@@ -77,6 +77,7 @@ function! ToggleBG()
   endif
   call HiClear()
   call HiNoneBG()
+  redraw!
 endfunction
 
 function! DotFoldText()
@@ -97,22 +98,25 @@ function! OneSentencePerLine()
   if mode() =~# '^[iR]'
     return
   endif
+  let indentation_level = indent('.') / &shiftwidth
+  let indentation_command = repeat('>', indentation_level)
   let start = v:lnum
   let end = start + v:count - 1
   execute start.','.end.'join'
-  s/[.!?] \zs\s*\ze\S/\r/g
+  s/\(^\s*\d\+\)\@<!\(\<al\)\@<![.!?] \zs\s*\ze\S/\r/g
   call TrimWhitespace()
+  exec end+1.','.line(".").indentation_command
 endfunction
 
-function! LocalWrap(tw=0, sbr='>', brk=' ^I!@*-+;:,./?')
+function! LocalWrap(tw=0, sb='>', ba=' ^I!@*-+;:,./?')
   setlocal wrap
   setlocal nolist
   setlocal linebreak
   setlocal breakindent
   " Set tw=0 to soft wrap.
   let &l:textwidth=a:tw
-  let &l:showbreak=a:sbr
-  let &l:breakat=a:brk
+  let &l:showbreak=a:sb
+  let &l:breakat=a:ba
 endfunction
 
 function! LocalNoWrap()
@@ -138,11 +142,6 @@ if exists(":AsyncRun")
   if !exists(":AsyncGrep") 
     command! -bang -nargs=* -complete=file -bar AsyncGrep  AsyncRun<bang> -program=grep -auto=grep @ <args>
   endif
-endif
-
-if exists("##GoyoEnter") && exists("##GoyoLeave") && exists(":Limelight")
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
 endif
 
 augroup ResetCursorShape
