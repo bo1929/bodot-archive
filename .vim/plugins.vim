@@ -96,6 +96,9 @@ call plug#begin('~/.vim/vim-plug')
   " === abolish === {{{
     Plug        'tpope/vim-abolish'
   " }}}
+  " === fugitive === {{{
+    Plug        'tpope/vim-fugitive'
+  " }}}
   " === obsession === {{{
     Plug        'tpope/vim-obsession'
   " }}}
